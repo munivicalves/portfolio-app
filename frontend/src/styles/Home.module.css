@@ -1,0 +1,308 @@
+/* Home.module.css */
+
+.container {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #808080;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-top: -20px;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+/* Dark & Light Modes */
+.dark {
+  background-color: #191919;
+  color: #fff;
+  --card-bg: #2c2c2c;
+  --icon-color: #fff;
+  --tag-bg: #444;
+  --tag-text: #fff;
+}
+
+.light {
+  background-color: #fff;
+  color: #000;
+  --card-bg: #f4f4f4;
+  --icon-color: #333;
+  --tag-bg: #e0e0e0;
+  --tag-text: #333;
+}
+
+/* Sections */
+.skills, .projects, .certifications, .testimonials, .cta {
+  margin-bottom: 3rem;
+}
+
+/* Skill icons */
+.skill-icons svg {
+  font-size: 2rem;
+  margin: 0.5rem;
+  transition: transform 0.2s ease;
+  cursor: default;
+}
+
+.skill-icons svg:hover {
+  transform: scale(1.2);
+}
+
+.skillsetSection {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.skillsetTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--color-primary, #ff69b4);
+}
+
+.skillsetGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.skillItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: default;
+  color: var(--color-text, #333);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.skillIcon {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.skillItem:hover .skillIcon {
+  color: var(--color-primary, #ff69b4);
+  transform: scale(1.2);
+}
+
+.skillItem:hover {
+  color: var(--color-primary, #ff69b4);
+}
+
+.skillCarousel {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin-bottom: 1rem;
+}
+
+.skillCarousel::-webkit-scrollbar {
+  display: none;
+}
+
+.skillScroll {
+  display: flex;
+  gap: 1rem;
+  animation: scrollSkills 25s linear infinite;
+  width: max-content;
+}
+
+.skillCard {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  padding: 10px;
+  border-radius: 12px;
+  background-color: var(--card-bg, #f4f4f4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  color: var(--icon-color, #333);
+}
+
+.skillCard:hover {
+  transform: scale(1.1);
+}
+
+.skillCard svg {
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+.skillCard span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.tags span {
+  background-color: var(--tag-bg, #e0e0e0);
+  color: var(--tag-text, #333);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Scroll animation */
+@keyframes scrollSkills {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+
+
+/* Projects carousel */
+.project-carousel {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Project card */
+.project-card {
+  background-color: inherit;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  flex: 1;
+  min-width: 280px;
+  max-width: 350px;
+  transition: box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+.project-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.project-card p {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-card a {
+  color: #7a32f9;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.project-card a:hover {
+  text-decoration: underline;
+}
+.project-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+.project-img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Certifications list */
+.certifications ul {
+  padding-left: 1.2rem;
+  list-style-type: square;
+}
+
+/* Testimonials */
+.testimonials blockquote {
+  font-style: italic;
+  border-left: 4px solid #999;
+  padding-left: 1rem;
+  margin: 0;
+}
+
+.testimonials footer {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* CTA button */
+.cta-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #7a32f9;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #3a049a;
+}
+
+/* Tipografia adicional */
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ff69b4;
+  text-shadow: 1px 1px 5px rgba(255, 105, 180, 0.4); /* glow sutil */
+  letter-spacing: 1.5px;
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.title:hover {
+  transform: scale(1.01); /* leve destaque no hover */
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-color, #333);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.projects h2 {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+

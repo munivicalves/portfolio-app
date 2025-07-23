@@ -1,0 +1,326 @@
+:root {
+  --background: #191919;
+  --container-bg: #191919;
+  --text-color: #ffffff;
+  --highlight-color: #ffffff;
+  --subtitle-color: #add8e6;
+  --bullet-color: #ff69b4;
+  --title-color: #ff69b4;
+}
+
+.description {
+  font-size: larger;
+  line-height: 1.6;
+ }
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0px 5px;
+  max-width: 1200px; /* Limita a largura máxima do wrapper */
+  margin: 0 auto; /* Centraliza o wrapper */
+  align-self: stretch;
+  flex: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: 1500px; /* Aumentado para alinhar melhor com a sidebar */
+  margin: 0 auto;
+  padding: 30px 20px 30px 20px;
+  box-sizing: border-box;
+  background-color: var(--container-bg);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #808080; /* Cor cinza para a borda */
+  transition: border-color 0.3s ease; 
+  margin-top: -20px; /* Espaçamento superior */
+  height: 100%; 
+  overflow-y: auto; /* Permite rolagem vertical se necessário */
+}
+
+.card {
+  background-color: var(--container-bg);
+  width: 100%;
+  margin-bottom: 40px;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #808080; /* Cor cinza para a borda */
+  transition: border-color 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--highlight-color); /* Mantém o efeito hover com a cor destacada */
+}
+
+.title {
+  font-size: 1.8rem;
+  color: var(--highlight-color);
+  margin-bottom: 15px;
+}
+
+.highlight {
+  color: var(--highlight-color);
+}
+
+
+p,
+ul {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  line-height:normal;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+::marker {
+  color: var(--bullet-color); /* Cor dos marcadores */
+}
+
+.intro {
+  margin-bottom: 30px; /* ou o valor que preferir */
+}
+.experienciaScroll {
+  max-height: 400px; /* ajuste conforme necessário */
+  overflow-y: auto;
+  padding-right: 10px; /* espaço para a barra de rolagem */
+}
+.experienciaScroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.experienciaScroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.experienciaScroll::-webkit-scrollbar-thumb {
+  background-color: #ff69b4; /* rosa claro */
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.experienciaScroll::-webkit-scrollbar-thumb:hover {
+  background-color: #ff1493; /* rosa mais escuro no hover */
+}
+.experienciaScroll {
+  scrollbar-width: thin;
+  scrollbar-color: #ff69b4 transparent;
+}
+.experienciaItem {
+  margin-bottom: 20px;
+}
+
+.experienceTitle {
+  font-size: 1.4rem;
+  color: var(--title-color);
+  margin-bottom: 5px;
+}
+
+.experienceSubtitle {
+  font-size: 1.1rem;
+  color: var(--subtitle-color);
+  margin-bottom: 10px;
+}
+
+.experienceList {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+.row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.row .card {
+  flex: 1;
+  min-width: 450px; /* para responsividade */
+}
+
+.skillsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Alinha à esquerda */
+  column-gap: 60px; /* Espaço horizontal entre colunas */
+  row-gap: 10px;    /* Espaço vertical entre linhas */
+}
+
+.skillsGrid > ul {
+  flex: 0 0 auto;
+  width: auto;
+}
+.skillsGrid h3 {
+  font-size: 1.2rem;
+  color: var(--title-color);
+  margin-bottom: 10px;
+}
+
+.skillsGrid ul {
+  list-style: none; /* Remove os marcadores padrão */
+  padding-left: 0;
+}
+
+.skillsGrid li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 8px;
+}
+
+.skillsGrid li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: #ff69b4; /* Rosa */
+  font-weight: bold;
+}
+.competencias {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.competenciasScroll {
+  max-height: 400px; /* ajuste conforme necessário */
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.competenciasScroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.competenciasScroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.competenciasScroll::-webkit-scrollbar-thumb {
+  background-color: #ff69b4;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.competenciasScroll::-webkit-scrollbar-thumb:hover {
+  background-color: #ff1493;
+}
+
+.competenciasScroll {
+  scrollbar-width: thin;
+  scrollbar-color: #ff69b4 transparent;
+}
+
+.languageColumn,
+.hobbiesColumn {
+  flex: 1;
+  min-width: 300px;
+}
+
+.languageItem {
+  margin-bottom: 15px;
+}
+
+.progressBar {
+  background-color: #333;
+  border-radius: 10px;
+  height: 10px;
+  width: 100%;
+  margin-top: 5px;
+  overflow: hidden;
+}
+
+.progressFill {
+  background-color: #ff69b4;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.hobbyTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.hobbyTags span {
+  background-color: #ff69b4;
+  color: #191919;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+
+.idiomasHobbies {
+  display: flex;
+  flex-direction: column;
+}
+
+.infos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  color: #555;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+body.dark .infos {
+  color: #ccc;
+}
+
+html.light .container,
+html.light .card {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+html.light .title {
+  color: #333333;
+}
+
+html.light .experienceSubtitle {
+  color: #666666;
+}
+
+html.light p,
+html.light ul {
+  color: #333333;
+}
+
+html.light .infos {
+  color: #333333;
+}
+html.light .infoItem {
+  color: #333333;
+}
+/* LIGHT MODE */
+.light {
+  --container-bg: #ffffff;
+  --text-color: #333333;
+  --highlight-color: #333333;
+  --subtitle-color: #666666;
+}
+
+/* DARK MODE - mantido como estava */
+.dark {
+  --container-bg: #191919;
+  --text-color: #ffffff;
+  --highlight-color: #ffffff;
+  --subtitle-color: #add8e6;
+}
+
+

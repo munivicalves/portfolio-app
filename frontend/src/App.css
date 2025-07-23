@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap');
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+}
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+/* VARIÁVEIS DE TEMA */
+:root {
+  --bg-color: #cccccc; /* Cinza claro como padrão para light */
+  --sidebar-bg: #ffffff;
+  --navbar-bg: #ffffff;
+  --sidebar-text-h2: #2c2c2c;
+  --sidebar-text-p: #686868;
+  --navbar-text-a: #2c2c2c;
+}
+
+.dark {
+  --bg-color: #333333; /* Cinza escuro para dark */
+  --sidebar-bg: #191919;
+  --navbar-bg: #191919;
+  --sidebar-text-h2: #ffffff;
+  --sidebar-text-p: #cccccc;
+  --navbar-text-a: #ffffff;
+}
+
+.light {
+  --bg-color: #cccccc; /* Mantém cinza claro */
+  --nav-bg: #eeeeee;
+}
+
+/* APP CONTAINER */
+.app-container {
+  min-height: 100vh;
+  background-color: var(--bg-color); /* Fundo cinza para todo o site */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* BODY */
+body {
+  background-color: var(--bg-color); /* Garante que o corpo todo seja cinza */
+  margin: 0;
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: var(--navbar-bg);
+  padding: 15px;
+  border-radius: 1rem;
+  margin: 0 auto; /* Remove margin-top, mantendo apenas centralização horizontal */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 900px;
+}
+
+/* CONTENT WRAPPER */
+.content-wrapper {
+  display: flex;
+  max-width: 1540px; /* Aumenta a largura para dar espaço ao sidebar */
+  margin: 0 auto;
+  padding: 0px; /* Espaçamento lateral */
+  flex: 1;
+  align-self: stretch;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 250px;
+  padding: 20px;
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid transparent;
+  margin-left: auto; 
+}
+
+.light .sidebar {
+  border-right-color: #ddd;
+}
+
+.dark .sidebar {
+  border-right-color: #444;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: var(--bg-color); /* Fundo cinza no conteúdo */
+}
+
+/* RODAPÉ */
+.footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 20px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* SCROLL SUAVE */
+html {
+  scroll-behavior: smooth;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .sidebar {
+    width: 100%;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+    margin-left: 0; /* Remove margem em telas pequenas */
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .theme-toggle {
+    position: static;
+    align-self: flex-end;
+  }
+}

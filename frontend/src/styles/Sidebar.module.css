@@ -1,0 +1,76 @@
+.root {
+  --sidebar-bg: #f0f0f0; /* Cor de fundo do sidebar */
+  --sidebar-text-h2: #333333; /* Cor do texto h2 no sidebar */
+  --sidebar-text-p: #666666; /* Cor do texto p no sidebar */
+  --subtitle-color: #ff69b4; /* Cor do subtítulo */
+}
+
+.sidebar {
+  width: 350px;
+  background-color: var(--sidebar-bg);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20px;
+  border-radius: 12px;
+  border: 1px solid #808080; /* Cor cinza para a borda */
+  transition: border-color 0.3s ease; 
+  flex: 0 0 auto; /* Garante que o sidebar não encolha */
+  height: 1200px; /* Altura fixa para o sidebar */
+}
+
+.sidebar h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: var(--sidebar-text-h2);
+  text-align: left;
+}
+.sidebar h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #ff69b4;
+  text-align: left;
+}
+.sidebar p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  color: var(--sidebar-text-p);
+  text-align: left;
+}
+
+.profileImage {
+  width: 100%;
+  border-radius: 5%;
+  margin-bottom: 1rem;
+  height: 400px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.socialLinks {
+  margin-top: 20px;
+}
+
+.socialLinks a {
+  display: block;
+  margin-top: 0.5rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.socialLinks a:hover {
+  color: #ff69b4; 
+}
+.socialLinks a:visited {
+  color: #ff69b4; 
+}
+.socialLinks a:active {
+  color: #ff1493; 
+}
