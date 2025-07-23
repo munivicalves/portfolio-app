@@ -7,8 +7,11 @@ function Portfolio() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Usa variável de ambiente com fallback para localhost
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
   useEffect(() => {
-    axios.get('http://localhost:5000/projects')
+    axios.get(`${API_URL}/projects`)
       .then(response => {
         setProjects(response.data);
         setLoading(false);
@@ -17,7 +20,7 @@ function Portfolio() {
         console.error('Erro ao buscar projetos:', error);
         setLoading(false);
       });
-  }, []);
+  }, [API_URL]);
 
   return (
     <div className={styles.container}>

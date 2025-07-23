@@ -9,10 +9,10 @@ import styles from '../styles/Home.module.css'; // caminho do antigo CSS
 
 export default function Home({ darkMode }) {
   const [projects, setProjects] = useState([]);
-    useEffect(() => {
-    axios.get('http://localhost:5000/projects')
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+  useEffect(() => {
+    axios.get(`${API_URL}/projects`)
       .then(response => {
-        // Pega os dois mais recentes (ou todos se quiser)
         const latestProjects = response.data.slice(-2).reverse();
         setProjects(latestProjects);
       })
