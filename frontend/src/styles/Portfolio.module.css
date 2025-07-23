@@ -37,5 +37,12 @@
 /* Dark mode */
 :global(.dark) {
   --text-color: #f0f0f0;
-  background-color: #191919;
+  background-color: #333333;
+}
+
+.light {
+  --container-bg: #ffffff;
+  --text-color: #333333;
+  --highlight-color: #333333;
+  --subtitle-color: #666666;
 }

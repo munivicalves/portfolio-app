@@ -305,4 +305,11 @@
   text-align: left;
 }
 
+.light {
+  --container-bg: #ffffff;
+  --text-color: #333333;
+  --highlight-color: #333333;
+  --subtitle-color: #666666;
+}
+
 

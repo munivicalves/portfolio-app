@@ -32,8 +32,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home darkMode={darkMode} />} />
               <Route path="/about" element={<About darkMode={darkMode} />} />
-              <Route path="/portfolio" element={<Portfolio />} />
-              <Route path="/create-project" element={<CreateProject />} />
+              <Route path="/portfolio" element={<Portfolio darkMode={darkMode} />} />
+              <Route path="/create-project" element={<CreateProject darkMode={darkMode} />} />
             </Routes>
           </div>
         </div>

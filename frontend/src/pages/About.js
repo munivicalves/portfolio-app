@@ -109,9 +109,9 @@ function About({ darkMode }) {
                 </div>
               </div>
               <div className={styles.languageItem}>
-                <span>Inglês — Intermediário</span>
+                <span>Inglês — Básico</span>
                 <div className={styles.progressBar}>
-                  <div className={styles.progressFill} style={{ width: '100%' }}></div>
+                  <div className={styles.progressFill} style={{ width: '40%%' }}></div>
                 </div>
               </div>
             </div>
