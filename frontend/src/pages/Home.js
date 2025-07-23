@@ -66,7 +66,7 @@ export default function Home({ darkMode }) {
           <div className={styles["project-card"]} key={project._id}>
             <h3>{project.title}</h3>
             <img
-              src={require(`../assets/${project.imageUrls[0]}`)}
+              src={`/assets/${project.imageUrls[0]}`}
               alt={project.title}
               className={styles["project-img"]}
             />

@@ -3,7 +3,7 @@ import styles from '../styles/Sidebar.module.css';
 function Sidebar({ theme }) {
   return (
     <aside className={`${styles.sidebar} ${theme === 'dark' ? styles.dark : styles.light}`}>
-      <img src="/IMG_0361.JPG" alt="Profile" className={styles.profileImage} />
+      <img src="/assets/IMG_0361.JPG" alt="Profile" className={styles.profileImage} />
       <h2>Munique Victória</h2>
       <h3>Desenvolvedora em Formação</h3>
       <p>

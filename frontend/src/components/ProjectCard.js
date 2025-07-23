@@ -20,13 +20,8 @@ function ProjectCard({ title, description, imageUrls = [], githubUrl, deployUrl,
     setSelectedIndex((prev) => (prev === imageUrls.length - 1 ? 0 : prev + 1));
   };
 
-  const getImageSrc = (img) => {
-    try {
-      return require(`../assets/${img}`);
-    } catch {
-      return null;
-    }
-  };
+  // Agora acessando diretamente da pasta public
+  const getImageSrc = (img) => `/assets/${img}`;
 
   return (
     <div className={styles.card}>
@@ -34,18 +29,15 @@ function ProjectCard({ title, description, imageUrls = [], githubUrl, deployUrl,
       <p>{description}</p>
 
       <div className={styles.imageGallery}>
-        {imageUrls.map((img, idx) => {
-          const src = getImageSrc(img);
-          return src ? (
-            <img
-              key={idx}
-              src={src}
-              alt={`${title}-${idx}`}
-              className={styles.image}
-              onClick={() => handleClickImage(idx)}
-            />
-          ) : null;
-        })}
+        {imageUrls.map((img, idx) => (
+          <img
+            key={idx}
+            src={getImageSrc(img)}
+            alt={`${title}-${idx}`}
+            className={styles.image}
+            onClick={() => handleClickImage(idx)}
+          />
+        ))}
       </div>
 
       {techs.length > 0 && (
