@@ -1,9 +1,11 @@
-import { FaReact, FaNodeJs, FaGithub, FaHtml5, FaCss3Alt } from 'react-icons/fa';
+import { FaReact, FaNodeJs, FaGithub, FaHtml5, FaCss3Alt, FaJsSquare, FaDatabase, FaAws,  FaCogs, FaDesktop, FaLinkedin, FaJava, FaCloud } from 'react-icons/fa';
+
 import { SiMongodb, SiJavascript } from 'react-icons/si';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from '../styles/Home.module.css'; // caminho do antigo CSS
+
 
 export default function Home({ darkMode }) {
   const [projects, setProjects] = useState([]);
@@ -31,15 +33,22 @@ export default function Home({ darkMode }) {
       <section className={styles.skillsetSection}>
         <h2 className={styles.skillsetTitle}>Skillset</h2>
         <div className={styles.skillCarousel}>
-          <div className={styles.skillScroll}>
-            <div className={styles.skillCard}><FaReact /><span>React</span></div>
-            <div className={styles.skillCard}><FaNodeJs /><span>Node.js</span></div>
-            <div className={styles.skillCard}><SiMongodb /><span>MongoDB</span></div>
-            <div className={styles.skillCard}><FaGithub /><span>GitHub</span></div>
-            <div className={styles.skillCard}><FaHtml5 /><span>HTML5</span></div>
-            <div className={styles.skillCard}><FaCss3Alt /><span>CSS3</span></div>
-            <div className={styles.skillCard}><SiJavascript /><span>JavaScript</span></div>
-          </div>
+        <div className={styles.skillScroll}>
+          <div className={styles.skillCard}><FaReact /><span>React</span></div>
+          <div className={styles.skillCard}><FaNodeJs /><span>Node.js</span></div>
+          <div className={styles.skillCard}><FaDatabase /><span>MongoDB</span></div>
+          <div className={styles.skillCard}><FaGithub /><span>GitHub</span></div>
+          <div className={styles.skillCard}><FaHtml5 /><span>HTML5</span></div>
+          <div className={styles.skillCard}><FaCss3Alt /><span>CSS3</span></div>
+          <div className={styles.skillCard}><FaJsSquare /><span>JavaScript</span></div>
+          <div className={styles.skillCard}><FaDatabase /><span>MySQL</span></div>
+          <div className={styles.skillCard}><FaDatabase /><span>SQL Server</span></div>
+          <div className={styles.skillCard}><FaJava /><span>Java</span></div>
+          <div className={styles.skillCard}><FaCogs /><span>Spring Boot</span></div>
+          <div className={styles.skillCard}><FaAws /><span>AWS</span></div>
+          <div className={styles.skillCard}><FaCogs /><span>Maven</span></div>
+          <div className={styles.skillCard}><FaDesktop /><span>Java Swing</span></div>
+        </div>
         </div>
 
         <div className={styles.tags}>
@@ -73,17 +82,18 @@ export default function Home({ darkMode }) {
       <section className={styles.certifications}>
         <h2>Certificações</h2>
         <ul>
-          <li>HTML e CSS - Alura</li>
-          <li>JavaScript Moderno - Udemy</li>
-          <li>React com Projetos Práticos - Origamid</li>
+          <li>Minicurso de Análise de Dados - Cubo Academy</li>
+          <li>Segurança da Informação - Unimoura</li>
+          <li>Fundamentos de Gestão de Projetos - Unimoura</li>
+          <li>Versionamento de Código com Git e GitHub - DIO</li>
         </ul>
       </section>
 
       <section className={styles.testimonials}>
-        <h2>Depoimentos</h2>
+        <h2>Pensando além do código</h2>
         <blockquote>
-          "Munique é extremamente dedicada, sempre entrega soluções bem elaboradas e com ótima organização."
-          <footer>– Professor da Universidade</footer>
+          "Para mim, tecnologia é sobre resolver problemas de forma criativa, construindo soluções que fazem a diferença."
+          <footer>– Munique Alves</footer>
         </blockquote>
       </section>
 
@@ -91,6 +101,15 @@ export default function Home({ darkMode }) {
         <h2>Vamos construir algo incrível juntos?</h2>
         <p> Entre em contato comigo através do e-mail: munivicalves@gmail.com</p>
         <Link to="/about" className={styles["cta-button"]}>Saiba mais sobre mim</Link>
+        <div className={styles.socialLinks}>
+          <a href="https://github.com/munivicalves" target="_blank" rel="noopener noreferrer">
+            <FaGithub />
+          </a>
+          <a href="https://linkedin.com/in/munique-alves" target="_blank" rel="noopener noreferrer">
+            <FaLinkedin />
+          </a>
+        </div>
+
       </section>
     </div>
   );

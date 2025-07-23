@@ -210,11 +210,21 @@
 }
 
 /* Modo escuro */
+:global(.light) {
+  --card-bg: #ffffff;
+  --text-color: #333333;
+  --highlight: #ff69b4;
+  --tag-bg: #eee;
+  --tag-color: #333;
+  --btn-bg: #7a32f9;
+  --btn-hover: #3a049a;
+}
 :global(.dark) {
   --card-bg: #2c2c2c;
   --text-color: #f0f0f0;
+  --highlight: #ff69b4;
   --tag-bg: #444;
-  --tag-color: #f0f0f0;
-  --btn-bg: #ff69b4;
-  --btn-hover: #e0559e;
+  --tag-color: #fff;
+  --btn-bg: #7a32f9;
+  --btn-hover: #3a049a;
 }

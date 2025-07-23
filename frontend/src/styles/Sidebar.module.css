@@ -21,6 +21,12 @@
   height: 1200px; /* Altura fixa para o sidebar */
 }
 
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}
+
 .sidebar h2 {
   font-size: 1.5rem;
   margin-bottom: 1rem;

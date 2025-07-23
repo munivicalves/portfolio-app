@@ -68,12 +68,10 @@ function About({ darkMode }) {
         <div className={styles.row}>
           <section className={styles.card}>
             <h2 className={styles.title}>
-              Educação <span className={styles.highlight}>e Cursos</span>
+              Educação e Formação
             </h2>
             <ul>
               <li>Sistemas de Informação — Em andamento</li>
-              <li>Curso de Análise de Dados</li>
-              <li>Curso de Vendas</li>
             </ul>
           </section>
 
@@ -82,16 +80,17 @@ function About({ darkMode }) {
             <div className={styles.skillsGrid}>
                 <ul>
                   <li>Figma</li>
-                  <li>Photoshop</li>
-                  <li>Illustrator</li>
-                  <li>After Effects</li>
-                  <li>Blender</li>
+                  <li>React</li>
+                  <li>Node.js & Express</li>
+                  <li>Java</li>
+                  <li>MySQL</li>
                 </ul>
                 <ul>
                   <li>HTML & CSS/SASS</li>
                   <li>JavaScript ES6+</li>
-                  <li>React</li>
-                  <li>Git & Bootstrap</li>
+                  <li>MongoDB</li>
+                  <li>Git Hub</li>
+                  <li>Metodologias Ageis</li>
                 </ul>
             </div>
           </section>
@@ -111,7 +110,7 @@ function About({ darkMode }) {
               <div className={styles.languageItem}>
                 <span>Inglês — Básico</span>
                 <div className={styles.progressBar}>
-                  <div className={styles.progressFill} style={{ width: '40%%' }}></div>
+                  <div className={styles.progressFill} style={{ width: '40%' }}></div>
                 </div>
               </div>
             </div>
@@ -120,8 +119,9 @@ function About({ darkMode }) {
               <h2 className={styles.title}>Hobbies</h2>
               <div className={styles.hobbyTags}>
                 <span>Desenvolvimento de projetos pessoais</span>
-                <span>Desenho e ilustração digital</span>
-                <span>Fotografia</span>
+                <span>Assistir a filmes e séries</span>
+                <span>Viajar e conhecer lugares diferentes</span>
+                <span>Academia</span>
                 <span>Exploração de novas tecnologias</span>
               </div>
             </div>
