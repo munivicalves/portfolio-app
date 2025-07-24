@@ -3,6 +3,7 @@ import styles from '../styles/ProjectCard.module.css';
 
 function ProjectCard({ title, description, imageUrls = [], githubUrl, deployUrl, techs = [] }) {
   const [selectedIndex, setSelectedIndex] = useState(null);
+  console.log('📦 Renderizando projeto:', title);
 
   const handleClickImage = (index) => {
     setSelectedIndex(index);

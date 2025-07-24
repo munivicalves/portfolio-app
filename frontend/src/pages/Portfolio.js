@@ -4,7 +4,7 @@ import styles from '../styles/Portfolio.module.css';
 import ProjectCard from '../components/ProjectCard';
 
 // Define a URL da API fora do componente (melhor performance e clareza)
-const API_URL = process.env.REACT_APP_API_URL ?? 'http://localhost:5000';
+const API_URL = process.env.REACT_APP_API_URL;
 
 function Portfolio() {
   const [projects, setProjects] = useState([]);
@@ -29,9 +29,18 @@ function Portfolio() {
         <p>Carregando...</p>
       ) : (
         <div className={styles.projectGrid}>
-          {projects.map(project => (
-            <ProjectCard key={project._id} {...project} />
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={index}
+              title={project.title}
+              description={project.description}
+              imageUrls={project.imageUrls}
+              githubUrl={project.githubUrl}
+              deployUrl={project.deployUrl}
+              techs={project.techs}
+            />
           ))}
+
         </div>
       )}
     </div>

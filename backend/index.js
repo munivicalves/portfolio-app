@@ -5,23 +5,23 @@ const projectRoutes = require('./routes/projectRoutes');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+
+// Configurações de PORT e MONGODB_URI
+const PORT = process.env.PORT || 5000;  // Defina a porta do servidor
+const MONGODB_URI = process.env.MONGODB_URI;  // URI do MongoDB
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
 // Conexão com MongoDB
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true, // ainda é recomendado manter isso
-})
-  .then(() => console.log('✅ Conectado ao MongoDB'))
-  .catch((err) => console.error('❌ Erro na conexão com o MongoDB:', err.message));
+mongoose.connect(MONGODB_URI)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch((err) => console.error('MongoDB connection error:', err));
 
 // Rotas
 app.use('/projects', projectRoutes);
 
-// Iniciar servidor
 app.listen(PORT, () => {
-  console.log(`🚀 Servidor rodando na porta ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
