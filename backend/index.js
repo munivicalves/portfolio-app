@@ -13,15 +13,15 @@ app.use(express.json());
 
 // Conexão com MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+  useNewUrlParser: true, // ainda é recomendado manter isso
 })
-  .then(() => console.log('Connected to MongoDB'))
-  .catch((err) => console.error('MongoDB connection error:', err));
+  .then(() => console.log('✅ Conectado ao MongoDB'))
+  .catch((err) => console.error('❌ Erro na conexão com o MongoDB:', err.message));
 
 // Rotas
 app.use('/projects', projectRoutes);
 
+// Iniciar servidor
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`🚀 Servidor rodando na porta ${PORT}`);
 });

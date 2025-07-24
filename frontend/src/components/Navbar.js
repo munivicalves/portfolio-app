@@ -1,11 +1,9 @@
 import { Link } from 'react-router-dom';
 import styles from '../styles/Navbar.module.css';
-import logoDark from '../assets/logo-dark.png';
-import logoLight from '../assets/logo-light.png';
 import { useState } from 'react';
 
 function Navbar({ darkMode, toggleTheme }) {
-  const logo = darkMode ? logoLight : logoDark;
+  const logo = darkMode ? '/assets/logo-light.png' : '/assets/logo-dark.png';
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
