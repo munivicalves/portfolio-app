@@ -1,11 +1,8 @@
-import { FaReact, FaNodeJs, FaGithub, FaHtml5, FaCss3Alt, FaJsSquare, FaDatabase, FaAws,  FaCogs, FaDesktop, FaLinkedin, FaJava, FaCloud } from 'react-icons/fa';
-
-import { SiMongodb, SiJavascript } from 'react-icons/si';
+import { FaReact, FaNodeJs, FaGithub, FaHtml5, FaCss3Alt, FaJsSquare, FaDatabase, FaAws,  FaCogs, FaDesktop, FaLinkedin, FaJava } from 'react-icons/fa';
+import styles from '../styles/Home.module.css';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import styles from '../styles/Home.module.css'; // caminho do antigo CSS
-
 
 export default function Home({ darkMode }) {
   const [projects, setProjects] = useState([]);

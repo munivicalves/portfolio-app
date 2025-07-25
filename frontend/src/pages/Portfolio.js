@@ -4,7 +4,9 @@ import styles from '../styles/Portfolio.module.css';
 import ProjectCard from '../components/ProjectCard';
 
 // Define a URL da API fora do componente (melhor performance e clareza)
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = process.env.NODE_ENV === 'development'
+  ? process.env.REACT_APP_API_LOCAL
+  : process.env.REACT_APP_API_PROD;
 
 function Portfolio() {
   const [projects, setProjects] = useState([]);
