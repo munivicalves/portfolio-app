@@ -16,7 +16,7 @@ export default function Home({ darkMode }) {
       .catch(error => {
         console.error('Erro ao buscar projetos:', error);
       });
-  }, []);
+  }, [API_URL]);
 
   return (
     <div

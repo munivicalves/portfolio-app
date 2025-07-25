@@ -12,17 +12,18 @@ function Portfolio() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    axios.get(`${API_URL}/projects`)
-      .then(response => {
-        setProjects(response.data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error('Erro ao buscar projetos:', error);
-        setLoading(false);
-      });
-  }, []); // Sem dependências, pois API_URL é constante
+    useEffect(() => {
+      axios.get(`${API_URL}/projects`)
+        .then(response => {
+          console.log('🔎 Dados da API:', response.data); // <- Adicione isso
+          setProjects(response.data);
+          setLoading(false);
+        })
+        .catch(error => {
+          console.error('❌ Erro ao buscar projetos:', error);
+          setLoading(false);
+        });
+    }, []);
 
   return (
     <div className={styles.container}>
