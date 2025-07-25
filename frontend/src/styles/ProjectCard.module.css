@@ -34,11 +34,14 @@
   height: 6px;
 }
 .imageGallery::-webkit-scrollbar-thumb {
-  background: #666;
+  background: #ff69b4;
   border-radius: 10px;
 }
 .imageGallery::-webkit-scrollbar-track {
   background: transparent;
+}
+.imageGallery::-webkit-scrollbar-thumb{
+  background-color: #ff1493;
 }
 
 .image {
@@ -227,4 +230,30 @@
   --tag-color: #fff;
   --btn-bg: #7a32f9;
   --btn-hover: #3a049a;
+}
+
+@media (max-width: 450px) {
+  .modalContent {
+    max-width: 95vw;
+    max-height: 85vh;
+    padding: 10px;
+  }
+
+  .modalImage {
+    max-height: 50vh;
+  }
+
+  .prevButton,
+  .nextButton {
+    font-size: 24px;
+    padding: 6px;
+  }
+
+  .prevButton {
+    left: 4px; /* traz a seta pra dentro da tela */
+  }
+
+  .nextButton {
+    right: 4px; /* traz a seta pra dentro da tela */
+  }
 }
