@@ -273,6 +273,36 @@
   background-color: #3a049a;
 }
 
+.description {
+  max-height: 100px;
+  overflow-y: auto;
+  padding-right: 6px;
+  line-height: 1.4;
+  scrollbar-width: thin;
+  scrollbar-color: #ff69b4 transparent;
+}
+
+/* Scroll estilizado (WebKit browsers) */
+.description::-webkit-scrollbar {
+  width: 6px;
+}
+
+.description::-webkit-scrollbar-thumb {
+  background-color: #ff69b4;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.description::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.description::-webkit-scrollbar-thumb:hover {
+  background-color: #ff1493;
+}
+
+
 /* Tipografia adicional */
 .title {
   font-size: 2rem;

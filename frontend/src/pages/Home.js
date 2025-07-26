@@ -67,7 +67,7 @@ export default function Home({ darkMode }) {
               alt={project.title}
               className={styles["project-img"]}
             />
-            <p>{project.description}</p>
+            <p className={styles.description}>{project.description}</p>
             <p><strong>Tecnologias:</strong> {project.techs.join(', ')}</p>
             <Link to="/portfolio">Ver mais</Link>
           </div>
