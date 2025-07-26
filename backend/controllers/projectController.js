@@ -57,3 +57,16 @@ exports.deleteProject = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+exports.getProjectById = async (req, res) => {
+  try {
+    const project = await Project.findById(req.params.id);
+    if (!project) {
+      return res.status(404).json({ message: 'Projeto não encontrado' });
+    }
+    res.json(project);
+  } catch (err) {
+    console.error('Erro ao buscar projeto por ID:', err);
+    res.status(500).json({ message: 'Erro ao buscar projeto por ID' });
+  }
+};
