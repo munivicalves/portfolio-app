@@ -21,7 +21,6 @@ function ProjectCard({ title, description, imageUrls = [], githubUrl, deployUrl,
     setSelectedIndex((prev) => (prev === imageUrls.length - 1 ? 0 : prev + 1));
   };
 
-  // Agora acessando diretamente da pasta public
   const getImageSrc = (img) => `/assets/${img}`;
 
   return (

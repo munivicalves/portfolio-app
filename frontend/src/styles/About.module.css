@@ -18,15 +18,15 @@
   display: flex;
   justify-content: center;
   padding: 0px 5px;
-  max-width: 1200px; /* Limita a largura máxima do wrapper */
-  margin: 0 auto; /* Centraliza o wrapper */
+  max-width: 1200px; 
+  margin: 0 auto; 
   align-self: stretch;
   flex: 1;
 }
 
 .container {
   width: 100%;
-  max-width: 1500px; /* Aumentado para alinhar melhor com a sidebar */
+  max-width: 1500px;
   margin: 0 auto;
   padding: 30px 20px 30px 20px;
   box-sizing: border-box;
@@ -37,11 +37,11 @@
   gap: 5px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border: 1px solid #808080; /* Cor cinza para a borda */
+  border: 1px solid #808080; 
   transition: border-color 0.3s ease; 
-  margin-top: -20px; /* Espaçamento superior */
+  margin-top: -20px; 
   height: 100%; 
-  overflow-y: auto; /* Permite rolagem vertical se necessário */
+  overflow-y: auto; 
 }
 
 .card {
@@ -50,12 +50,12 @@
   margin-bottom: 40px;
   padding: 30px;
   border-radius: 12px;
-  border: 1px solid #808080; /* Cor cinza para a borda */
+  border: 1px solid #808080; 
   transition: border-color 0.3s ease;
 }
 
 .card:hover {
-  border-color: var(--highlight-color); /* Mantém o efeito hover com a cor destacada */
+  border-color: var(--highlight-color); 
 }
 
 .title {
@@ -82,16 +82,16 @@ ul {
   padding-left: 20px;
 }
 ::marker {
-  color: var(--bullet-color); /* Cor dos marcadores */
+  color: var(--bullet-color); 
 }
 
 .intro {
-  margin-bottom: 30px; /* ou o valor que preferir */
+  margin-bottom: 30px; 
 }
 .experienciaScroll {
-  max-height: 400px; /* ajuste conforme necessário */
+  max-height: 400px; 
   overflow-y: auto;
-  padding-right: 10px; /* espaço para a barra de rolagem */
+  padding-right: 10px; 
 }
 .experienciaScroll::-webkit-scrollbar {
   width: 8px;
@@ -102,14 +102,14 @@ ul {
 }
 
 .experienciaScroll::-webkit-scrollbar-thumb {
-  background-color: #ff69b4; /* rosa claro */
+  background-color: #ff69b4; 
   border-radius: 10px;
   border: 2px solid transparent;
   background-clip: content-box;
 }
 
 .experienciaScroll::-webkit-scrollbar-thumb:hover {
-  background-color: #ff1493; /* rosa mais escuro no hover */
+  background-color: #ff1493; 
 }
 .experienciaScroll {
   scrollbar-width: thin;
@@ -156,10 +156,10 @@ ul {
 .skillsGrid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* Alinha à esquerda */
-  column-gap: 60px; /* Espaço horizontal entre colunas */
-  row-gap: 10px;    /* Espaço vertical entre linhas */
-  gap: 2rem; /* Espaçamento geral */
+  justify-content: space-between;
+  column-gap: 60px; 
+  row-gap: 10px;    
+  gap: 2rem;
 }
 
 .skillsGrid > ul {
@@ -173,7 +173,7 @@ ul {
 }
 
 .skillsGrid ul {
-  list-style: none; /* Remove os marcadores padrão */
+  list-style: none; 
   padding-left: 0;
 }
 
@@ -187,7 +187,7 @@ ul {
   content: '✔';
   position: absolute;
   left: 0;
-  color: #ff69b4; /* Rosa */
+  color: #ff69b4; 
   font-weight: bold;
 }
 .competencias {
@@ -196,7 +196,7 @@ ul {
   gap: 10px;
 }
 .competenciasScroll {
-  max-height: 400px; /* ajuste conforme necessário */
+  max-height: 400px; 
   overflow-y: auto;
   padding-right: 10px;
 }
@@ -315,7 +315,7 @@ html.light .infos {
 html.light .infoItem {
   color: #333333;
 }
-/* LIGHT MODE */
+
 .light {
   --container-bg: #ffffff;
   --text-color: #333333;
@@ -323,7 +323,6 @@ html.light .infoItem {
   --subtitle-color: #666666;
 }
 
-/* DARK MODE - mantido como estava */
 .dark {
   --container-bg: #191919;
   --text-color: #ffffff;
@@ -355,7 +354,6 @@ html.light .infoItem {
   flex: 1;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .aboutContent {
     flex-direction: column;
@@ -367,7 +365,6 @@ html.light .infoItem {
   }
 }
 
-/* RESPONSIVO */
 @media (max-width: 768px) {
   .skillsGrid {
     flex-direction: column;
@@ -380,7 +377,7 @@ html.light .infoItem {
 }
 .languageColumn, .hobbiesColumn {
   flex: 1;
-  min-width: 200px; /* mais flexível para mobile */
+  min-width: 200px;
 }
 @media (max-width: 768px) {
   .container {

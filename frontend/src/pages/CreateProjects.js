@@ -23,16 +23,15 @@ function CreateProject() {
         ...formData,
         imageUrls: formData.imageUrls
           .split(',')
-          .map((url) => url.trim()), // converte para array de strings
+          .map((url) => url.trim()), 
         techs: formData.techs
           .split(',')
-          .map((tech) => tech.trim()), // converte para array de strings
+          .map((tech) => tech.trim()),
       };
 
       await axios.post('http://localhost:5000/projects', payload);
       alert('Projeto criado com sucesso!');
 
-      // limpa o formulário
       setFormData({
         title: '',
         description: '',
@@ -75,7 +74,7 @@ function CreateProject() {
         <div>
           <label>Nomes das Imagens (separados por vírgula):</label>
           <input
-            type="text" // <-- alterado de "url" para "text"
+            type="text" 
             name="imageUrls"
             value={formData.imageUrls}
             onChange={handleChange}
