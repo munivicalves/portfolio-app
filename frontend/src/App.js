@@ -24,16 +24,16 @@ function App() {
 
   return (
     <Router>
-      <div className={`app-container ${darkMode ? 'dark' : 'light'}`}>
+      <div className="app-container">
         <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
         <div className="content-wrapper">
           <Sidebar />
           <div className="main-content">
             <Routes>
-              <Route path="/" element={<Home darkMode={darkMode} />} />
-              <Route path="/about" element={<About darkMode={darkMode} />} />
-              <Route path="/portfolio" element={<Portfolio darkMode={darkMode} />} />
-              <Route path="/create-project" element={<CreateProject darkMode={darkMode} />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/create-project" element={<CreateProject />} />
             </Routes>
           </div>
         </div>

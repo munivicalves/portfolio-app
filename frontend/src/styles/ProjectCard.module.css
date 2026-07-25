@@ -1,131 +1,199 @@
 .card {
-  background-color: var(--card-bg, #fff);
-  color: var(--text-color, #000);
-  border-radius: 16px;
-  padding: 1rem;
-  max-width: 1200px; 
-  width: 100%;      
-  margin: 1rem;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-5);
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  border: 1px solid #ddd;
+  gap: var(--space-3);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
 .card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
 }
+
+.card h3 {
+  font-size: 1.2rem;
+  color: var(--color-text);
+}
+
+.projectDescriptionScroll {
+  font-size: 0.92rem;
+  color: var(--color-text-secondary);
+  max-height: 110px;
+  overflow-y: auto;
+  padding-right: 6px;
+  line-height: 1.5;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+
+.projectDescriptionScroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.projectDescriptionScroll::-webkit-scrollbar-thumb {
+  background-color: var(--accent);
+  border-radius: var(--radius-pill);
+}
+
+/* ---------- Image gallery ---------- */
 
 .imageGallery {
   display: flex;
   overflow-x: auto;
-  gap: 12px;
-  padding: 10px 0;
+  gap: var(--space-2);
+  padding-bottom: var(--space-1);
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: #666 #222;
+  scrollbar-color: var(--accent) transparent;
 }
 
 .imageGallery::-webkit-scrollbar {
-  height: 8px;
-}
-
-.imageGallery::-webkit-scrollbar-track {
-  background: transparent;
+  height: 6px;
 }
 
 .imageGallery::-webkit-scrollbar-thumb {
-  background-color: #ff69b4; 
-  border-radius: 10px;
-  border: 2px solid transparent;
-  background-clip: content-box;
+  background-color: var(--accent);
+  border-radius: var(--radius-pill);
 }
 
-.imageGallery::-webkit-scrollbar-thumb:hover {
-  background-color: #ff1493; 
-}
-
-.imageGallery {
-  scrollbar-width: thin;
-  scrollbar-color: #ff69b4 transparent;
+.imageButton {
+  flex: 0 0 auto;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  line-height: 0;
 }
 
 .image {
   width: 140px;
-  height: 100px;
+  height: 95px;
   object-fit: cover;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
+  border-radius: var(--radius-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
-.image:hover {
+
+.imageButton:hover .image,
+.imageButton:focus-visible .image {
   transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-md);
 }
 
 @media (max-width: 768px) {
   .image {
-    height: 60px;
-  }
-  .card {
-    padding: 10px;
+    width: 110px;
+    height: 72px;
   }
 }
 
-.imagesContainer {
+/* ---------- Techs & links ---------- */
+
+.techs {
   display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 10px 0;
-  max-width: 100%;
+  flex-wrap: wrap;
+  gap: var(--space-2);
 }
+
+.techs span {
+  background-color: var(--color-surface-alt);
+  color: var(--color-text-secondary);
+  padding: 0.3rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+}
+
+.links {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+.links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: border-color var(--transition-fast), color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.links a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.linkPrimary {
+  border: none !important;
+  background: var(--gradient-accent);
+  color: #fff !important;
+}
+
+.linkPrimary:hover {
+  color: #fff !important;
+  opacity: 0.92;
+}
+
+/* ---------- Lightbox modal ---------- */
 
 .modalOverlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
+  inset: 0;
+  background-color: rgba(10, 8, 12, 0.72);
+  backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  padding: var(--space-4);
 }
 
 .modalContent {
   position: relative;
-  background-color: #222;
-  padding: 20px;
-  border-radius: 10px;
+  background-color: #18141d;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
   max-width: 80vw;
   max-height: 80vh;
-  box-shadow: 0 0 15px #00000099;
+  box-shadow: var(--shadow-lg);
 }
 
 .modalImage {
   max-width: 100%;
   max-height: 60vh;
-  border-radius: 8px;
+  display: block;
+  border-radius: var(--radius-sm);
 }
 
 .closeButton {
   position: absolute;
-  top: -10px;
-  right: -10px;
-  font-size: 22px;
-  background: #ff0055;
+  top: -12px;
+  right: -12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-accent);
   border: none;
-  color: white;
+  color: #fff;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
+  box-shadow: var(--shadow-md);
 }
 
 .prevButton,
@@ -133,151 +201,48 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 28px;
-  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
   border: none;
-  color: white;
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  padding: 10px;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.prevButton:hover,
+.nextButton:hover {
+  background-color: var(--accent);
 }
 
 .prevButton {
-  left: -40px;
+  left: -20px;
 }
 
 .nextButton {
-  right: -40px;
-}
-.prevButton:hover,
-.nextButton:hover {
-  color: #ff69b4;
-}
-
-@keyframes zoomInFade {
-  0% {
-    opacity: 0;
-    transform: scale(0.85);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-
-
-.card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: var(--primary-color, #333);
-}
-.card h3 {
-  font-size: 1.25rem;
-  margin: 0.5rem 0;
-  color: var(--highlight, #ff69b4);
-}
-
-.card p {
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
-  color: var(--text-color, #444);
-}
-
-.techs {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.4rem;
-  margin-bottom: 1rem;
-}
-
-.techs span {
-  background-color: var(--tag-bg, #eee);
-  color: var(--tag-color, #333);
-  padding: 0.3rem 0.6rem;
-  font-size: 0.75rem;
-  border-radius: 20px;
-  font-weight: 500;
-}
-
-.links {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: auto;
-}
-
-.links a {
-  background-color: var(--btn-bg, #007bff);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 0.85rem;
-  transition: background-color 0.3s ease;
-}
-
-.links a:hover {
-  background-color: var(--btn-hover, #0056b3);
-}
-
-/* Modo escuro */
-:global(.light) {
-  --card-bg: #ffffff;
-  --text-color: #333333;
-  --highlight: #ff69b4;
-  --tag-bg: #eee;
-  --tag-color: #333;
-  --btn-bg: #7a32f9;
-  --btn-hover: #3a049a;
-}
-:global(.dark) {
-  --card-bg: #2c2c2c;
-  --text-color: #f0f0f0;
-  --highlight: #ff69b4;
-  --tag-bg: #444;
-  --tag-color: #fff;
-  --btn-bg: #7a32f9;
-  --btn-hover: #3a049a;
+  right: -20px;
 }
 
 @media (max-width: 450px) {
   .modalContent {
     max-width: 95vw;
     max-height: 85vh;
-    padding: 10px;
+    padding: var(--space-2);
   }
 
   .modalImage {
     max-height: 50vh;
   }
 
-  .prevButton,
-  .nextButton {
-    font-size: 24px;
-    padding: 6px;
-  }
-
   .prevButton {
-    left: 4px; 
+    left: 4px;
   }
 
   .nextButton {
     right: 4px;
   }
-}
-
-.projectDescriptionScroll {
-  max-height: 140px;
-  overflow-y: auto;
-  padding-right: 8px;
-}
-
-.projectDescriptionScroll::-webkit-scrollbar {
-  width: 6px;
-}
-
-.projectDescriptionScroll::-webkit-scrollbar-thumb {
-  background-color: #ff69b4;
-  border-radius: 10px;
 }

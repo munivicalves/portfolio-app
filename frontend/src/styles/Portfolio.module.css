@@ -1,47 +1,41 @@
 .container {
-  padding: 2rem 1rem;
-  max-width: 1200px;
+  padding: var(--space-6) 0 var(--space-7);
+  max-width: var(--max-width);
   margin: 0 auto;
-  color: var(--text-color, #000);
-  transition: color 0.3s ease, background-color 0.3s ease;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background-color: var(--accent-soft);
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: var(--space-3);
 }
 
 .container h1 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 1.6rem + 1.6vw, 2.8rem);
   font-weight: 800;
-  margin-bottom: 2rem;
-  text-align: center;
-  color: var(--highlight, #ff69b4);
-  text-shadow: 1px 1px 5px rgba(255, 105, 180, 0.4); 
-  letter-spacing: 1.5px;
-  transition: transform 0.3s ease;
+  margin-bottom: var(--space-6);
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.container h1:hover {
-  transform: scale(1.03); 
-}
-.container p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  color: var(--text-color, #333);
+.status {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
 }
 
 .projectGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  justify-content: center;
-}
-
-:global(.dark) {
-  --text-color: #f0f0f0;
-  background-color: #333333;
-}
-
-.light {
-  --container-bg: #ffffff;
-  --text-color: #333333;
-  --highlight-color: #333333;
-  --subtitle-color: #666666;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-5);
+  text-align: left;
 }

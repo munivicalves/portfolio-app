@@ -1,51 +1,84 @@
-import { FaReact, FaNodeJs, FaGithub, FaHtml5, FaCss3Alt, FaJsSquare, FaDatabase, FaAws,  FaCogs, FaDesktop, FaLinkedin, FaJava } from 'react-icons/fa';
+import {
+  FaReact,
+  FaNodeJs,
+  FaGithub,
+  FaHtml5,
+  FaCss3Alt,
+  FaJsSquare,
+  FaDatabase,
+  FaAws,
+  FaCogs,
+  FaDesktop,
+  FaLinkedin,
+  FaJava,
+} from 'react-icons/fa';
+import { Award } from 'lucide-react';
 import styles from '../styles/Home.module.css';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { API_URL } from '../config/api';
+import Reveal from '../components/Reveal';
 
-export default function Home({ darkMode }) {
+const SKILLS = [
+  { icon: FaReact, label: 'React' },
+  { icon: FaNodeJs, label: 'Node.js' },
+  { icon: FaDatabase, label: 'MongoDB' },
+  { icon: FaGithub, label: 'GitHub' },
+  { icon: FaHtml5, label: 'HTML5' },
+  { icon: FaCss3Alt, label: 'CSS3' },
+  { icon: FaJsSquare, label: 'JavaScript' },
+  { icon: FaDatabase, label: 'MySQL' },
+  { icon: FaDatabase, label: 'SQL Server' },
+  { icon: FaJava, label: 'Java' },
+  { icon: FaCogs, label: 'Spring Boot' },
+  { icon: FaAws, label: 'AWS' },
+  { icon: FaCogs, label: 'Maven' },
+  { icon: FaDesktop, label: 'Java Swing' },
+];
+
+const CERTIFICATIONS = [
+  'Minicurso de Análise de Dados - Cubo Academy',
+  'Segurança da Informação - Unimoura',
+  'Fundamentos de Gestão de Projetos - Unimoura',
+  'Versionamento de Código com Git e GitHub - DIO',
+];
+
+export default function Home() {
   const [projects, setProjects] = useState([]);
-  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
   useEffect(() => {
-    axios.get(`${API_URL}/projects`)
-      .then(response => {
-        const latestProjects = response.data.slice(-2).reverse();
-        setProjects(latestProjects);
+    axios
+      .get(`${API_URL}/projects`)
+      .then((response) => {
+        setProjects(response.data.slice(-2).reverse());
       })
-      .catch(error => {
+      .catch((error) => {
         console.error('Erro ao buscar projetos:', error);
       });
-  }, [API_URL]);
+  }, []);
 
   return (
-    <div
-      className={`${styles.container} ${darkMode ? styles.dark : styles.light}`}
-    >
-      <h1 className={styles.title}>Bem-vindo ao Meu Portfólio</h1>
-      <p className={styles.subtitle}>
-        Explore meus projetos, serviços e conheça mais sobre mim!
-      </p>
+    <div className={styles.container}>
+      <section className={styles.hero}>
+        <span className={styles.eyebrow}>Olá, seja bem-vindo(a)</span>
+        <h1 className={styles.title}>Bem-vindo ao Meu Portfólio</h1>
+        <p className={styles.subtitle}>
+          Explore meus projetos, serviços e conheça mais sobre mim!
+        </p>
+      </section>
 
-      <section className={styles.skillsetSection}>
-        <h2 className={styles.skillsetTitle}>Skillset</h2>
+      <Reveal as="section" className={styles.skillsetSection}>
+        <h2 className={styles.sectionTitle}>Skillset</h2>
         <div className={styles.skillCarousel}>
-        <div className={styles.skillScroll}>
-          <div className={styles.skillCard}><FaReact /><span>React</span></div>
-          <div className={styles.skillCard}><FaNodeJs /><span>Node.js</span></div>
-          <div className={styles.skillCard}><FaDatabase /><span>MongoDB</span></div>
-          <div className={styles.skillCard}><FaGithub /><span>GitHub</span></div>
-          <div className={styles.skillCard}><FaHtml5 /><span>HTML5</span></div>
-          <div className={styles.skillCard}><FaCss3Alt /><span>CSS3</span></div>
-          <div className={styles.skillCard}><FaJsSquare /><span>JavaScript</span></div>
-          <div className={styles.skillCard}><FaDatabase /><span>MySQL</span></div>
-          <div className={styles.skillCard}><FaDatabase /><span>SQL Server</span></div>
-          <div className={styles.skillCard}><FaJava /><span>Java</span></div>
-          <div className={styles.skillCard}><FaCogs /><span>Spring Boot</span></div>
-          <div className={styles.skillCard}><FaAws /><span>AWS</span></div>
-          <div className={styles.skillCard}><FaCogs /><span>Maven</span></div>
-          <div className={styles.skillCard}><FaDesktop /><span>Java Swing</span></div>
-        </div>
+          <div className={styles.skillScroll}>
+            {[...SKILLS, ...SKILLS].map((skill, idx) => (
+              <div className={styles.skillCard} key={`${skill.label}-${idx}`}>
+                <skill.icon />
+                <span>{skill.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className={styles.tags}>
@@ -54,60 +87,72 @@ export default function Home({ darkMode }) {
           <span>flexibilidade</span>
           <span>tech fluency</span>
         </div>
-      </section>
+      </Reveal>
 
-          <section className={styles.projects}>
-      <h2>Últimos Projetos</h2>
-      <div className={styles["project-carousel"]}>
-        {projects.map((project) => (
-          <div className={styles["project-card"]} key={project._id}>
-            <h3>{project.title}</h3>
-            <img
-              src={`/assets/${project.imageUrls[0]}`}
-              alt={project.title}
-              className={styles["project-img"]}
-            />
-            <p className={styles.description}>{project.description}</p>
-            <p><strong>Tecnologias:</strong> {project.techs.join(', ')}</p>
-            <Link to="/portfolio">Ver mais</Link>
-          </div>
-        ))}
-      </div>
-    </section>
+      <Reveal as="section" className={styles.projects}>
+        <h2 className={styles.sectionTitle}>Últimos Projetos</h2>
+        <div className={styles.projectCarousel}>
+          {projects.map((project) => (
+            <div className={styles.projectCard} key={project._id}>
+              <img
+                src={`/assets/${project.imageUrls[0]}`}
+                alt={project.title}
+                className={styles.projectImg}
+              />
+              <h3>{project.title}</h3>
+              <p className={styles.description}>{project.description}</p>
+              <p className={styles.projectTechs}>
+                <strong>Tecnologias:</strong> {project.techs.join(', ')}
+              </p>
+              <Link to="/portfolio" className={styles.projectLink}>
+                Ver mais →
+              </Link>
+            </div>
+          ))}
+        </div>
+      </Reveal>
 
+      <Reveal as="section" className={styles.certifications}>
+        <h2 className={styles.sectionTitle}>Certificações</h2>
+        <div className={styles.certGrid}>
+          {CERTIFICATIONS.map((cert) => (
+            <div className={styles.certBadge} key={cert}>
+              <Award size={18} />
+              <span>{cert}</span>
+            </div>
+          ))}
+        </div>
+      </Reveal>
 
-      <section className={styles.certifications}>
-        <h2>Certificações</h2>
-        <ul>
-          <li>Minicurso de Análise de Dados - Cubo Academy</li>
-          <li>Segurança da Informação - Unimoura</li>
-          <li>Fundamentos de Gestão de Projetos - Unimoura</li>
-          <li>Versionamento de Código com Git e GitHub - DIO</li>
-        </ul>
-      </section>
-
-      <section className={styles.testimonials}>
-        <h2>Pensando além do código</h2>
+      <Reveal as="section" className={styles.testimonials}>
+        <h2 className={styles.sectionTitle}>Pensando além do código</h2>
         <blockquote>
-          "Para mim, tecnologia é sobre resolver problemas de forma criativa, construindo soluções que fazem a diferença."
+          "Para mim, tecnologia é sobre resolver problemas de forma criativa, construindo soluções
+          que fazem a diferença."
           <footer>– Munique Alves</footer>
         </blockquote>
-      </section>
+      </Reveal>
 
-      <section className={styles.cta}>
+      <Reveal as="section" className={styles.cta}>
         <h2>Vamos construir algo incrível juntos?</h2>
-        <p> Entre em contato comigo através do e-mail: munivicalves@gmail.com</p>
-        <Link to="/about" className={styles["cta-button"]}>Saiba mais sobre mim</Link>
+        <p>Entre em contato comigo através do e-mail: munivicalves@gmail.com</p>
+        <Link to="/about" className={styles.ctaButton}>
+          Saiba mais sobre mim
+        </Link>
         <div className={styles.socialLinks}>
-          <a href="https://github.com/munivicalves" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/munivicalves" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <FaGithub />
           </a>
-          <a href="https://linkedin.com/in/munique-alves" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://linkedin.com/in/munique-alves"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
             <FaLinkedin />
           </a>
         </div>
-
-      </section>
+      </Reveal>
     </div>
   );
 }

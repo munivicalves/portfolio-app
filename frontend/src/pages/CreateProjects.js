@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import styles from '../styles/CreateProject.module.css';
+import { API_URL } from '../config/api';
 
 function CreateProject() {
   const [formData, setFormData] = useState({
@@ -21,15 +22,11 @@ function CreateProject() {
     try {
       const payload = {
         ...formData,
-        imageUrls: formData.imageUrls
-          .split(',')
-          .map((url) => url.trim()), 
-        techs: formData.techs
-          .split(',')
-          .map((tech) => tech.trim()),
+        imageUrls: formData.imageUrls.split(',').map((url) => url.trim()),
+        techs: formData.techs.split(',').map((tech) => tech.trim()),
       };
 
-      await axios.post('http://localhost:5000/projects', payload);
+      await axios.post(`${API_URL}/projects`, payload);
       alert('Projeto criado com sucesso!');
 
       setFormData({
@@ -51,30 +48,19 @@ function CreateProject() {
       <h1>Adicionar Novo Projeto</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Título:</label>
+          <label>Título</label>
+          <input type="text" name="title" value={formData.title} onChange={handleChange} required />
+        </div>
+
+        <div>
+          <label>Descrição</label>
+          <textarea name="description" value={formData.description} onChange={handleChange} required />
+        </div>
+
+        <div>
+          <label>Nomes das imagens (separados por vírgula)</label>
           <input
             type="text"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div>
-          <label>Descrição:</label>
-          <textarea
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div>
-          <label>Nomes das Imagens (separados por vírgula):</label>
-          <input
-            type="text" 
             name="imageUrls"
             value={formData.imageUrls}
             onChange={handleChange}
@@ -84,27 +70,17 @@ function CreateProject() {
         </div>
 
         <div>
-          <label>GitHub URL:</label>
-          <input
-            type="url"
-            name="githubUrl"
-            value={formData.githubUrl}
-            onChange={handleChange}
-          />
+          <label>GitHub URL</label>
+          <input type="url" name="githubUrl" value={formData.githubUrl} onChange={handleChange} />
         </div>
 
         <div>
-          <label>URL do Projeto Online:</label>
-          <input
-            type="url"
-            name="deployUrl"
-            value={formData.deployUrl}
-            onChange={handleChange}
-          />
+          <label>URL do projeto online</label>
+          <input type="url" name="deployUrl" value={formData.deployUrl} onChange={handleChange} />
         </div>
 
         <div>
-          <label>Tecnologias (separadas por vírgula):</label>
+          <label>Tecnologias (separadas por vírgula)</label>
           <input
             type="text"
             name="techs"

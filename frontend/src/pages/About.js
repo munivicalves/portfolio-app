@@ -1,103 +1,117 @@
-
 import styles from '../styles/About.module.css';
 import { Cake, MapPin, Laptop } from 'lucide-react';
+import Reveal from '../components/Reveal';
 
-function About({ darkMode }) {
+const EXPERIENCES = [
+  {
+    title: 'Assistente Administrativo',
+    subtitle: 'Baterias Moura | JAN/2023 – ATUAL',
+    items: [
+      'Apoio à gestão administrativa com foco em controle de contas a receber e organização financeira',
+      'Análise de crédito para avaliação de risco e definição de limites comerciais',
+      'Realização de cobranças e renegociação de dívidas com clientes',
+      'Negociação com clientes e manutenção do relacionamento comercial',
+      'Elaboração de relatórios financeiros e de vendas para tomada de decisões',
+      'Identificação e correção de inconsistências em lançamentos e documentos financeiros',
+      'Resolução de problemas',
+    ],
+  },
+  {
+    title: 'Gerente de Finanças',
+    subtitle: 'Maisa Pires Ateliê | SET/2021 – JAN/2023',
+    items: [
+      'Responsável pela gestão financeira da empresa: contas a pagar, conciliações bancárias, cobrança e folha de pagamento',
+      'Condução de atividades de Recursos Humanos: admissões, demissões, controle de ponto, férias e feedbacks',
+      'Resolução de conflitos financeiros com clientes, promovendo atendimento de excelência e melhoria no relacionamento comercial',
+      'Otimização de processos internos financeiros e administrativos, contribuindo para maior eficiência e controle',
+    ],
+  },
+  {
+    title: 'Assistente Administrativo',
+    subtitle: 'Maisa Pires Ateliê | JAN/2021 – SET/2021',
+    items: [
+      'Apoio à gestão administrativa e financeira da empresa',
+      'Conciliações bancárias e controle de contas a pagar e a receber',
+      'Emissão de boletos e acompanhamento de pagamentos de clientes',
+      'Suporte na organização de processos internos e atendimento ao cliente',
+      'Atendimento de clientes',
+    ],
+  },
+];
+
+function About() {
   return (
     <div className={styles.wrapper}>
-      <div className={`${styles.container} ${darkMode ? styles.dark : styles.light}`}>
+      <div className={styles.container}>
         <div className={styles.intro}>
-        <h2 className={styles.title}>
-          Sobre Mim 👩‍💻
-        </h2>
-        <p class= {styles.description}>
-          Apaixonada por resolver problemas com código.<br/>
-          Desenvolvedora júnior em formação, unindo lógica, back-end e visão estratégica para entregar soluções reais.
-        </p>
-        <div className={styles.infos}>
-          <div className={styles.infoItem}>
-            <Cake size={16} strokeWidth={2} /> 22 anos
-          </div>
-          <div className={styles.infoItem}>
-            <MapPin size={16} strokeWidth={2} /> Uberlândia, MG - Brasil
-          </div>
-          <div className={styles.infoItem}>
-            <Laptop size={16} strokeWidth={2} /> Remoto ou Híbrido
+          <h2 className={styles.title}>Sobre Mim 👩‍💻</h2>
+          <p className={styles.description}>
+            Apaixonada por resolver problemas com código.
+            <br />
+            Desenvolvedora júnior em formação, unindo lógica, back-end e visão estratégica para
+            entregar soluções reais.
+          </p>
+          <div className={styles.infos}>
+            <div className={styles.infoItem}>
+              <Cake size={16} strokeWidth={2} /> 22 anos
+            </div>
+            <div className={styles.infoItem}>
+              <MapPin size={16} strokeWidth={2} /> Uberlândia, MG - Brasil
+            </div>
+            <div className={styles.infoItem}>
+              <Laptop size={16} strokeWidth={2} /> Remoto ou Híbrido
+            </div>
           </div>
         </div>
-      </div>
-        <section className={`${styles.card} ${styles.experienciaScroll}`}>
-          <h2 className={styles.title}>
-            Experiência Profissional
-          </h2>
-          <div className={styles.experienceItem}>
-            <h3 className={styles.experienceTitle}>Assistente Administrativo</h3>
-            <p className={styles.experienceSubtitle}>Baterias Moura | JAN/2023 – ATUAL</p>
-            <ul className={styles.experienceList}>
-              <li>Apoio à gestão administrativa com foco em controle de contas a receber e organização financeira</li>
-              <li>Análise de crédito para avaliação de risco e definição de limites comerciais</li>
-              <li>Realização de cobranças e renegociação de dívidas com clientes</li>
-              <li>Negociação com clientes e manutenção do relacionamento comercial</li>
-              <li>Elaboração de relatórios financeiros e de vendas para tomada de decisões</li>
-              <li>Identificação e correção de inconsistências em lançamentos e documentos financeiros</li>
-              <li>Resolução de problemas</li>
-            </ul>
-            <br/><br/>
-            <h3 className={styles.experienceTitle}>Gerente de Finanças</h3>
-            <p className={styles.experienceSubtitle}>Maisa Pires Ateliê | SET/2021 – JAN/2023</p>
-            <ul className={styles.experienceList}>
-              <li>Responsável pela gestão financeira da empresa: contas a pagar, conciliações bancárias, cobrança e folha de pagamento</li>
-              <li>Condução de atividades de Recursos Humanos: admissões, demissões, controle de ponto, férias e feedbacks</li>
-              <li>Resolução de conflitos financeiros com clientes, promovendo atendimento de excelência e melhoria no relacionamento comercial</li>
-              <li>Otimização de processos internos financeiros e administrativos, contribuindo para maior eficiência e controle</li>
-            </ul>
-            <br/><br/>
-            <h3 className={styles.experienceTitle}>Assistente Administrativo</h3>
-            <p className={styles.experienceSubtitle}>Maisa Pires Ateliê | JAN/2021 – SET/2021</p>
-            <ul className={styles.experienceList}>
-              <li>Apoio à gestão administrativa e financeira da empresa</li>
-              <li>Conciliações bancárias e controle de contas a pagar e a receber</li>
-              <li>Emissão de boletos e acompanhamento de pagamentos de clientes</li>
-              <li>Suporte na organização de processos internos e atendimento ao cliente</li>
-              <li>Atendimento de clientes</li>
-            </ul>
-          </div>
 
-        </section>
+        <Reveal as="section" className={styles.card}>
+          <h2 className={styles.title}>Experiência Profissional</h2>
+          <div className={styles.timeline}>
+            {EXPERIENCES.map((exp) => (
+              <div className={styles.timelineItem} key={`${exp.title}-${exp.subtitle}`}>
+                <div className={styles.timelineDot} />
+                <h3 className={styles.experienceTitle}>{exp.title}</h3>
+                <p className={styles.experienceSubtitle}>{exp.subtitle}</p>
+                <ul className={styles.experienceList}>
+                  {exp.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </Reveal>
 
         <div className={styles.row}>
-          <section className={styles.card}>
-            <h2 className={styles.title}>
-              Educação e Formação
-            </h2>
+          <Reveal as="section" className={styles.card}>
+            <h2 className={styles.title}>Educação e Formação</h2>
             <ul>
               <li>Sistemas de Informação — Em andamento</li>
             </ul>
-          </section>
+          </Reveal>
 
-          <section className={`${styles.card} ${styles.competenciasScroll}`}>
+          <Reveal as="section" className={styles.card}>
             <h2 className={styles.title}>Competências</h2>
             <div className={styles.skillsGrid}>
-                <ul>
-                  <li>Figma</li>
-                  <li>React</li>
-                  <li>Node.js & Express</li>
-                  <li>Java</li>
-                  <li>MySQL</li>
-                </ul>
-                <ul>
-                  <li>HTML & CSS/SASS</li>
-                  <li>JavaScript ES6+</li>
-                  <li>MongoDB</li>
-                  <li>Git Hub</li>
-                  <li>Metodologias Ageis</li>
-                </ul>
+              <ul>
+                <li>Figma</li>
+                <li>React</li>
+                <li>Node.js & Express</li>
+                <li>Java</li>
+                <li>MySQL</li>
+              </ul>
+              <ul>
+                <li>HTML & CSS/SASS</li>
+                <li>JavaScript ES6+</li>
+                <li>MongoDB</li>
+                <li>GitHub</li>
+                <li>Metodologias Ágeis</li>
+              </ul>
             </div>
-          </section>
-
+          </Reveal>
         </div>
 
-        <section className={`${styles.card} ${styles.idiomasHobbies}`}>
+        <Reveal as="section" className={styles.card}>
           <div className={styles.skillsGrid}>
             <div className={styles.languageColumn}>
               <h2 className={styles.title}>Idiomas</h2>
@@ -126,10 +140,8 @@ function About({ darkMode }) {
               </div>
             </div>
           </div>
-        </section>
-
-
-    </div>
+        </Reveal>
+      </div>
     </div>
   );
 }
