@@ -1,50 +1,69 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import styles from '../styles/Portfolio.module.css';
-import ProjectCard from '../components/ProjectCard';
+import { useEffect, useState } from "react";
 
-const API_URL = process.env.NODE_ENV === 'development'
-  ? process.env.REACT_APP_API_LOCAL
-  : process.env.REACT_APP_API_PROD;
+import { getProjects } from "../services/projectService";
+
+import ProjectCard from "../components/project/ProjectCard";
 
 function Portfolio() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-      axios.get(`${API_URL}/projects`)
-        .then(response => {
-          console.log('🔎 Dados da API:', response.data); 
-          setProjects(response.data);
-          setLoading(false);
-        })
-        .catch(error => {
-          console.error('❌ Erro ao buscar projetos:', error);
-          setLoading(false);
-        });
-    }, []);
+  useEffect(() => {
+    async function loadProjects() {
+      try {
+        const data = await getProjects();
+        setProjects(data);
+      } catch (error) {
+        console.error("Erro ao buscar projetos:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadProjects();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="page-container py-20 text-center">
+        Carregando projetos...
+      </div>
+    );
+  }
 
   return (
-    <div className={styles.container}>
-      <h1>Portfólio</h1>
-      {loading ? (
-        <p>Carregando...</p>
-      ) : (
-        <div className={styles.projectGrid}>
-          {projects.map((project, index) => (
+    <div className="page-container pt-0">
+
+      <section className="section">
+
+        <h1 className="section-title">
+          Portfólio
+        </h1>
+
+        <p className="section-subtitle">
+          Alguns dos projetos que desenvolvi.
+        </p>
+
+        <div
+          className="
+            grid
+            gap-8
+
+            md:grid-cols-2
+
+            xl:grid-cols-2
+          "
+        >
+          {projects.map((project) => (
             <ProjectCard
-              key={index}
-              title={project.title}
-              description={project.description}
-              imageUrls={project.imageUrls}
-              githubUrl={project.githubUrl}
-              deployUrl={project.deployUrl}
-              techs={project.techs}
+              key={project._id}
+              project={project}
             />
           ))}
-
         </div>
-      )}
+
+      </section>
+
     </div>
   );
 }
