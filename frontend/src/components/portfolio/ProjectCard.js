@@ -1,9 +1,22 @@
-import { useState, useEffect, useCallback } from 'react';
-import { Github, ExternalLink, X, ChevronLeft, ChevronRight } from 'lucide-react';
-import styles from '../styles/ProjectCard.module.css';
-import Reveal from './Reveal';
+import { useState, useEffect, useCallback } from "react";
+import {
+  Github,
+  ExternalLink,
+  X,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import styles from "../../styles/ProjectCard.module.css";
+import Reveal from "../layout/Reveal";
 
-function ProjectCard({ title, description, imageUrls = [], githubUrl, deployUrl, techs = [] }) {
+function ProjectCard({
+  title,
+  description,
+  imageUrls = [],
+  githubUrl,
+  deployUrl,
+  techs = [],
+}) {
   const [selectedIndex, setSelectedIndex] = useState(null);
 
   const handleCloseModal = useCallback(() => setSelectedIndex(null), []);
@@ -20,13 +33,13 @@ function ProjectCard({ title, description, imageUrls = [], githubUrl, deployUrl,
     if (selectedIndex === null) return undefined;
 
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') handleCloseModal();
-      if (e.key === 'ArrowLeft') handlePrev();
-      if (e.key === 'ArrowRight') handleNext();
+      if (e.key === "Escape") handleCloseModal();
+      if (e.key === "ArrowLeft") handlePrev();
+      if (e.key === "ArrowRight") handleNext();
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedIndex, handleCloseModal, handlePrev, handleNext]);
 
   const getImageSrc = (img) => `/assets/${img}`;
@@ -45,7 +58,11 @@ function ProjectCard({ title, description, imageUrls = [], githubUrl, deployUrl,
             onClick={() => setSelectedIndex(idx)}
             aria-label={`Ampliar imagem ${idx + 1} de ${title}`}
           >
-            <img src={getImageSrc(img)} alt={`${title} — captura ${idx + 1}`} className={styles.image} />
+            <img
+              src={getImageSrc(img)}
+              alt={`${title} — captura ${idx + 1}`}
+              className={styles.image}
+            />
           </button>
         ))}
       </div>
@@ -65,7 +82,12 @@ function ProjectCard({ title, description, imageUrls = [], githubUrl, deployUrl,
           </a>
         )}
         {deployUrl && (
-          <a href={deployUrl} target="_blank" rel="noreferrer" className={styles.linkPrimary}>
+          <a
+            href={deployUrl}
+            target="_blank"
+            rel="noreferrer"
+            className={styles.linkPrimary}
+          >
             <ExternalLink size={16} /> Ver Online
           </a>
         )}
@@ -73,8 +95,15 @@ function ProjectCard({ title, description, imageUrls = [], githubUrl, deployUrl,
 
       {selectedIndex !== null && (
         <div className={styles.modalOverlay} onClick={handleCloseModal}>
-          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-            <button className={styles.closeButton} onClick={handleCloseModal} aria-label="Fechar">
+          <div
+            className={styles.modalContent}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className={styles.closeButton}
+              onClick={handleCloseModal}
+              aria-label="Fechar"
+            >
               <X size={18} />
             </button>
             <img
@@ -84,10 +113,18 @@ function ProjectCard({ title, description, imageUrls = [], githubUrl, deployUrl,
             />
             {imageUrls.length > 1 && (
               <>
-                <button className={styles.prevButton} onClick={handlePrev} aria-label="Imagem anterior">
+                <button
+                  className={styles.prevButton}
+                  onClick={handlePrev}
+                  aria-label="Imagem anterior"
+                >
                   <ChevronLeft size={28} />
                 </button>
-                <button className={styles.nextButton} onClick={handleNext} aria-label="Próxima imagem">
+                <button
+                  className={styles.nextButton}
+                  onClick={handleNext}
+                  aria-label="Próxima imagem"
+                >
                   <ChevronRight size={28} />
                 </button>
               </>

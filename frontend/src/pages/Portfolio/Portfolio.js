@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import styles from '../styles/Portfolio.module.css';
-import ProjectCard from '../components/ProjectCard';
-import { API_URL } from '../config/api';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import styles from "./Portfolio.module.css";
+import ProjectCard from "../../components/portfolio/ProjectCard";
+import { API_URL } from "../../config/api";
 
 function Portfolio() {
   const [projects, setProjects] = useState([]);
@@ -16,7 +16,7 @@ function Portfolio() {
         setLoading(false);
       })
       .catch((error) => {
-        console.error('Erro ao buscar projetos:', error);
+        console.error("Erro ao buscar projetos:", error);
         setLoading(false);
       });
   }, []);

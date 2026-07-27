@@ -1,40 +1,40 @@
-import styles from '../styles/About.module.css';
-import { Cake, MapPin, Laptop } from 'lucide-react';
-import Reveal from '../components/Reveal';
+import styles from "./About.module.css";
+import { Cake, MapPin, Laptop } from "lucide-react";
+import Reveal from "../../components/layout/Reveal";
 
 const EXPERIENCES = [
   {
-    title: 'Assistente Administrativo',
-    subtitle: 'Baterias Moura | JAN/2023 – ATUAL',
+    title: "Assistente Administrativo",
+    subtitle: "Baterias Moura | JAN/2023 – ATUAL",
     items: [
-      'Apoio à gestão administrativa com foco em controle de contas a receber e organização financeira',
-      'Análise de crédito para avaliação de risco e definição de limites comerciais',
-      'Realização de cobranças e renegociação de dívidas com clientes',
-      'Negociação com clientes e manutenção do relacionamento comercial',
-      'Elaboração de relatórios financeiros e de vendas para tomada de decisões',
-      'Identificação e correção de inconsistências em lançamentos e documentos financeiros',
-      'Resolução de problemas',
+      "Apoio à gestão administrativa com foco em controle de contas a receber e organização financeira",
+      "Análise de crédito para avaliação de risco e definição de limites comerciais",
+      "Realização de cobranças e renegociação de dívidas com clientes",
+      "Negociação com clientes e manutenção do relacionamento comercial",
+      "Elaboração de relatórios financeiros e de vendas para tomada de decisões",
+      "Identificação e correção de inconsistências em lançamentos e documentos financeiros",
+      "Resolução de problemas",
     ],
   },
   {
-    title: 'Gerente de Finanças',
-    subtitle: 'Maisa Pires Ateliê | SET/2021 – JAN/2023',
+    title: "Gerente de Finanças",
+    subtitle: "Maisa Pires Ateliê | SET/2021 – JAN/2023",
     items: [
-      'Responsável pela gestão financeira da empresa: contas a pagar, conciliações bancárias, cobrança e folha de pagamento',
-      'Condução de atividades de Recursos Humanos: admissões, demissões, controle de ponto, férias e feedbacks',
-      'Resolução de conflitos financeiros com clientes, promovendo atendimento de excelência e melhoria no relacionamento comercial',
-      'Otimização de processos internos financeiros e administrativos, contribuindo para maior eficiência e controle',
+      "Responsável pela gestão financeira da empresa: contas a pagar, conciliações bancárias, cobrança e folha de pagamento",
+      "Condução de atividades de Recursos Humanos: admissões, demissões, controle de ponto, férias e feedbacks",
+      "Resolução de conflitos financeiros com clientes, promovendo atendimento de excelência e melhoria no relacionamento comercial",
+      "Otimização de processos internos financeiros e administrativos, contribuindo para maior eficiência e controle",
     ],
   },
   {
-    title: 'Assistente Administrativo',
-    subtitle: 'Maisa Pires Ateliê | JAN/2021 – SET/2021',
+    title: "Assistente Administrativo",
+    subtitle: "Maisa Pires Ateliê | JAN/2021 – SET/2021",
     items: [
-      'Apoio à gestão administrativa e financeira da empresa',
-      'Conciliações bancárias e controle de contas a pagar e a receber',
-      'Emissão de boletos e acompanhamento de pagamentos de clientes',
-      'Suporte na organização de processos internos e atendimento ao cliente',
-      'Atendimento de clientes',
+      "Apoio à gestão administrativa e financeira da empresa",
+      "Conciliações bancárias e controle de contas a pagar e a receber",
+      "Emissão de boletos e acompanhamento de pagamentos de clientes",
+      "Suporte na organização de processos internos e atendimento ao cliente",
+      "Atendimento de clientes",
     ],
   },
 ];
@@ -48,8 +48,8 @@ function About() {
           <p className={styles.description}>
             Apaixonada por resolver problemas com código.
             <br />
-            Desenvolvedora júnior em formação, unindo lógica, back-end e visão estratégica para
-            entregar soluções reais.
+            Desenvolvedora júnior em formação, unindo lógica, back-end e visão
+            estratégica para entregar soluções reais.
           </p>
           <div className={styles.infos}>
             <div className={styles.infoItem}>
@@ -68,7 +68,10 @@ function About() {
           <h2 className={styles.title}>Experiência Profissional</h2>
           <div className={styles.timeline}>
             {EXPERIENCES.map((exp) => (
-              <div className={styles.timelineItem} key={`${exp.title}-${exp.subtitle}`}>
+              <div
+                className={styles.timelineItem}
+                key={`${exp.title}-${exp.subtitle}`}
+              >
                 <div className={styles.timelineDot} />
                 <h3 className={styles.experienceTitle}>{exp.title}</h3>
                 <p className={styles.experienceSubtitle}>{exp.subtitle}</p>
@@ -118,13 +121,19 @@ function About() {
               <div className={styles.languageItem}>
                 <span>Português — Nativo</span>
                 <div className={styles.progressBar}>
-                  <div className={styles.progressFill} style={{ width: '100%' }}></div>
+                  <div
+                    className={styles.progressFill}
+                    style={{ width: "100%" }}
+                  ></div>
                 </div>
               </div>
               <div className={styles.languageItem}>
                 <span>Inglês — Básico</span>
                 <div className={styles.progressBar}>
-                  <div className={styles.progressFill} style={{ width: '40%' }}></div>
+                  <div
+                    className={styles.progressFill}
+                    style={{ width: "40%" }}
+                  ></div>
                 </div>
               </div>
             </div>

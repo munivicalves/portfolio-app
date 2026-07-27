@@ -11,37 +11,37 @@ import {
   FaDesktop,
   FaLinkedin,
   FaJava,
-} from 'react-icons/fa';
-import { Award } from 'lucide-react';
-import styles from '../styles/Home.module.css';
-import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { API_URL } from '../config/api';
-import Reveal from '../components/Reveal';
+} from "react-icons/fa";
+import { Award } from "lucide-react";
+import styles from "./Home.module.css";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { API_URL } from "../../config/api";
+import Reveal from "../../components/layout/Reveal";
 
 const SKILLS = [
-  { icon: FaReact, label: 'React' },
-  { icon: FaNodeJs, label: 'Node.js' },
-  { icon: FaDatabase, label: 'MongoDB' },
-  { icon: FaGithub, label: 'GitHub' },
-  { icon: FaHtml5, label: 'HTML5' },
-  { icon: FaCss3Alt, label: 'CSS3' },
-  { icon: FaJsSquare, label: 'JavaScript' },
-  { icon: FaDatabase, label: 'MySQL' },
-  { icon: FaDatabase, label: 'SQL Server' },
-  { icon: FaJava, label: 'Java' },
-  { icon: FaCogs, label: 'Spring Boot' },
-  { icon: FaAws, label: 'AWS' },
-  { icon: FaCogs, label: 'Maven' },
-  { icon: FaDesktop, label: 'Java Swing' },
+  { icon: FaReact, label: "React" },
+  { icon: FaNodeJs, label: "Node.js" },
+  { icon: FaDatabase, label: "MongoDB" },
+  { icon: FaGithub, label: "GitHub" },
+  { icon: FaHtml5, label: "HTML5" },
+  { icon: FaCss3Alt, label: "CSS3" },
+  { icon: FaJsSquare, label: "JavaScript" },
+  { icon: FaDatabase, label: "MySQL" },
+  { icon: FaDatabase, label: "SQL Server" },
+  { icon: FaJava, label: "Java" },
+  { icon: FaCogs, label: "Spring Boot" },
+  { icon: FaAws, label: "AWS" },
+  { icon: FaCogs, label: "Maven" },
+  { icon: FaDesktop, label: "Java Swing" },
 ];
 
 const CERTIFICATIONS = [
-  'Minicurso de Análise de Dados - Cubo Academy',
-  'Segurança da Informação - Unimoura',
-  'Fundamentos de Gestão de Projetos - Unimoura',
-  'Versionamento de Código com Git e GitHub - DIO',
+  "Minicurso de Análise de Dados - Cubo Academy",
+  "Segurança da Informação - Unimoura",
+  "Fundamentos de Gestão de Projetos - Unimoura",
+  "Versionamento de Código com Git e GitHub - DIO",
 ];
 
 export default function Home() {
@@ -54,7 +54,7 @@ export default function Home() {
         setProjects(response.data.slice(-2).reverse());
       })
       .catch((error) => {
-        console.error('Erro ao buscar projetos:', error);
+        console.error("Erro ao buscar projetos:", error);
       });
   }, []);
 
@@ -102,7 +102,7 @@ export default function Home() {
               <h3>{project.title}</h3>
               <p className={styles.description}>{project.description}</p>
               <p className={styles.projectTechs}>
-                <strong>Tecnologias:</strong> {project.techs.join(', ')}
+                <strong>Tecnologias:</strong> {project.techs.join(", ")}
               </p>
               <Link to="/portfolio" className={styles.projectLink}>
                 Ver mais →
@@ -127,8 +127,8 @@ export default function Home() {
       <Reveal as="section" className={styles.testimonials}>
         <h2 className={styles.sectionTitle}>Pensando além do código</h2>
         <blockquote>
-          "Para mim, tecnologia é sobre resolver problemas de forma criativa, construindo soluções
-          que fazem a diferença."
+          "Para mim, tecnologia é sobre resolver problemas de forma criativa,
+          construindo soluções que fazem a diferença."
           <footer>– Munique Alves</footer>
         </blockquote>
       </Reveal>
@@ -140,7 +140,12 @@ export default function Home() {
           Saiba mais sobre mim
         </Link>
         <div className={styles.socialLinks}>
-          <a href="https://github.com/munivicalves" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <a
+            href="https://github.com/munivicalves"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
             <FaGithub />
           </a>
           <a

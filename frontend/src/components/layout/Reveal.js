@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
-import styles from '../styles/Reveal.module.css';
+import { useEffect, useRef, useState } from "react";
+import styles from "../../styles/Reveal.module.css";
 
-function Reveal({ children, className = '', as: Tag = 'div' }) {
+function Reveal({ children, className = "", as: Tag = "div" }) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
 
@@ -16,7 +16,7 @@ function Reveal({ children, className = '', as: Tag = 'div' }) {
           observer.disconnect();
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
 
     observer.observe(node);
@@ -24,7 +24,10 @@ function Reveal({ children, className = '', as: Tag = 'div' }) {
   }, []);
 
   return (
-    <Tag ref={ref} className={`${styles.reveal} ${visible ? styles.visible : ''} ${className}`}>
+    <Tag
+      ref={ref}
+      className={`${styles.reveal} ${visible ? styles.visible : ""} ${className}`}
+    >
       {children}
     </Tag>
   );
