@@ -1,0 +1,247 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-6) 0 var(--space-7);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-6);
+  transition: box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+}
+
+p,
+ul {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+}
+
+ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+}
+
+::marker {
+  color: var(--accent);
+}
+
+/* ---------- Intro ---------- */
+
+.intro {
+  text-align: center;
+  padding: var(--space-4) 0 var(--space-2);
+}
+
+.intro .title {
+  font-size: clamp(1.8rem, 1.4rem + 1.4vw, 2.4rem);
+}
+
+.description {
+  font-size: 1.1rem !important;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.infos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.infoItem svg {
+  color: var(--accent);
+}
+
+/* ---------- Experience timeline ---------- */
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.timelineItem {
+  position: relative;
+  padding-left: var(--space-6);
+}
+
+.timelineItem::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 4px;
+  bottom: calc(var(--space-6) * -1);
+  width: 2px;
+  background-color: var(--color-border-strong);
+}
+
+.timelineItem:last-child::before {
+  display: none;
+}
+
+.timelineDot {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gradient-accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+.experienceTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 2px;
+}
+
+.experienceSubtitle {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: var(--space-3);
+}
+
+.experienceList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+/* ---------- Education / skills row ---------- */
+
+.row {
+  display: flex;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.row .card {
+  flex: 1;
+  min-width: 300px;
+}
+
+.skillsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+}
+
+.skillsGrid ul {
+  list-style: none;
+  padding-left: 0;
+  flex: 1;
+  min-width: 180px;
+}
+
+.skillsGrid li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: var(--space-2);
+}
+
+.skillsGrid li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* ---------- Languages & hobbies ---------- */
+
+.languageColumn,
+.hobbiesColumn {
+  flex: 1;
+  min-width: 260px;
+}
+
+.languageItem {
+  margin-bottom: var(--space-4);
+}
+
+.languageItem span {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.progressBar {
+  background-color: var(--color-surface-alt);
+  border-radius: var(--radius-pill);
+  height: 8px;
+  width: 100%;
+  margin-top: var(--space-2);
+  overflow: hidden;
+}
+
+.progressFill {
+  background: var(--gradient-accent);
+  height: 100%;
+  border-radius: var(--radius-pill);
+}
+
+.hobbyTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.hobbyTags span {
+  background-color: var(--color-surface-alt);
+  color: var(--color-text-secondary);
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .row .card {
+    min-width: 100%;
+  }
+
+  .skillsGrid {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+}

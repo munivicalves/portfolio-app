@@ -1,13 +1,144 @@
-body {
+/* ==========================================================================
+   Design tokens — single source of truth for color, type, spacing, motion.
+   Light values live on :root; html.dark overrides them. Components should
+   only ever reference these variables, never hardcode colors.
+   ========================================================================== */
+
+:root {
+  /* Brand accent — refined rosé, used sparingly against neutral surfaces */
+  --accent-400: #f472b6;
+  --accent-500: #ec4899;
+  --accent-600: #db2777;
+  --accent-700: #be185d;
+  --accent-contrast: #ffffff;
+  --accent-soft: rgba(219, 39, 119, 0.1);
+  --gradient-accent: linear-gradient(135deg, #db2777 0%, #9333ea 100%);
+
+  /* Neutral surfaces (light) */
+  --color-bg: #f7f4f6;
+  --color-surface: #ffffff;
+  --color-surface-alt: #fdf2f8;
+  --color-border: rgba(31, 27, 33, 0.08);
+  --color-border-strong: rgba(31, 27, 33, 0.14);
+
+  /* Text (light) */
+  --color-text: #1f1b21;
+  --color-text-secondary: #57505c;
+  --color-text-muted: #8a8390;
+
+  /* Accent used for interactive text/icons */
+  --accent: var(--accent-600);
+  --accent-hover: var(--accent-700);
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgba(31, 27, 33, 0.06);
+  --shadow-md: 0 8px 24px rgba(31, 27, 33, 0.08);
+  --shadow-lg: 0 20px 40px rgba(31, 27, 33, 0.12);
+  --shadow-accent: 0 12px 28px rgba(219, 39, 119, 0.22);
+
+  /* Type */
+  --font-display: 'Poppins', 'Inter', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  /* Motion */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --max-width: 1200px;
+}
+
+html.dark {
+  --color-bg: #131016;
+  --color-surface: #1c181f;
+  --color-surface-alt: #241f29;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.14);
+
+  --color-text: #f5f2f6;
+  --color-text-secondary: #c3bac8;
+  --color-text-muted: #8f8695;
+
+  --accent: var(--accent-400);
+  --accent-hover: var(--accent-500);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 20px 45px rgba(0, 0, 0, 0.45);
+  --shadow-accent: 0 12px 28px rgba(244, 114, 182, 0.25);
+}
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  background-color: var(--color-bg);
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: var(--accent-contrast);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

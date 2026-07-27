@@ -1,72 +1,90 @@
+const fs = require('fs');
+const path = require('path');
+const crypto = require('crypto');
 const Project = require('../models/Project');
 
-exports.getAllProjects = async (req, res) => {
+const uploadsDirectory = path.join(__dirname, '..', 'uploads');
+const allowedTypes = { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp', 'image/gif': 'gif' };
+
+const cleanProjectData = (body) => ({
+  title: String(body.title || '').trim(),
+  description: String(body.description || '').trim(),
+  imageUrls: Array.isArray(body.imageUrls) ? body.imageUrls.filter(Boolean) : [],
+  githubUrl: String(body.githubUrl || '').trim(),
+  deployUrl: String(body.deployUrl || '').trim(),
+  techs: Array.isArray(body.techs) ? body.techs.map((tech) => String(tech).trim()).filter(Boolean) : [],
+});
+
+exports.getAllProjects = async (_req, res) => {
   try {
-    const projects = await Project.find();
-    res.json(projects);
+    res.json(await Project.find().sort({ createdAt: 1 }));
   } catch (err) {
     res.status(500).json({ message: err.message });
+  }
+};
+
+exports.getProjectById = async (req, res) => {
+  try {
+    const project = await Project.findById(req.params.id);
+    if (!project) return res.status(404).json({ message: 'Projeto não encontrado.' });
+    return res.json(project);
+  } catch {
+    return res.status(400).json({ message: 'Identificador de projeto inválido.' });
   }
 };
 
 exports.createProject = async (req, res) => {
-  const { title, description, imageUrls, githubUrl, deployUrl, techs } = req.body;
   try {
-    const newProject = new Project({
-      title,
-      description,
-      imageUrls,
-      githubUrl,
-      deployUrl,
-      techs,
-    });
-    await newProject.save();
-    res.status(201).json(newProject);
+    const project = new Project(cleanProjectData(req.body));
+    await project.save();
+    res.status(201).json(project);
   } catch (err) {
     res.status(400).json({ message: err.message });
-  }
-};
-exports.getProjectById = async (req, res) => {
-  try {
-    const project = await Project.findById(req.params.id);
-    if (!project) return res.status(404).json({ message: 'Project not found' });
-    res.json(project);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
   }
 };
 
 exports.updateProject = async (req, res) => {
   try {
-    const project = await Project.findByIdAndUpdate(req.params.id, req.body, {
+    const project = await Project.findByIdAndUpdate(req.params.id, cleanProjectData(req.body), {
       new: true,
+      runValidators: true,
     });
-    if (!project) return res.status(404).json({ message: 'Project not found' });
-    res.json(project);
+    if (!project) return res.status(404).json({ message: 'Projeto não encontrado.' });
+    return res.json(project);
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    return res.status(400).json({ message: err.message });
   }
 };
 
 exports.deleteProject = async (req, res) => {
   try {
     const project = await Project.findByIdAndDelete(req.params.id);
-    if (!project) return res.status(404).json({ message: 'Project not found' });
-    res.json({ message: 'Project deleted' });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
+    if (!project) return res.status(404).json({ message: 'Projeto não encontrado.' });
+
+    project.imageUrls.filter((image) => image.startsWith('/uploads/')).forEach((image) => {
+      const filePath = path.join(uploadsDirectory, path.basename(image));
+      fs.unlink(filePath, () => {});
+    });
+    return res.json({ message: 'Projeto excluído.' });
+  } catch {
+    return res.status(400).json({ message: 'Identificador de projeto inválido.' });
   }
 };
 
-exports.getProjectById = async (req, res) => {
+exports.uploadImage = (req, res) => {
+  const { data, type } = req.body || {};
+  const extension = allowedTypes[type];
+  if (!extension || typeof data !== 'string') return res.status(400).json({ message: 'Envie uma imagem PNG, JPG, WEBP ou GIF.' });
+
+  const image = Buffer.from(data, 'base64');
+  if (!image.length || image.length > 5 * 1024 * 1024) return res.status(400).json({ message: 'A imagem deve ter até 5 MB.' });
+
   try {
-    const project = await Project.findById(req.params.id);
-    if (!project) {
-      return res.status(404).json({ message: 'Projeto não encontrado' });
-    }
-    res.json(project);
-  } catch (err) {
-    console.error('Erro ao buscar projeto por ID:', err);
-    res.status(500).json({ message: 'Erro ao buscar projeto por ID' });
+    fs.mkdirSync(uploadsDirectory, { recursive: true });
+    const filename = `${Date.now()}-${crypto.randomBytes(8).toString('hex')}.${extension}`;
+    fs.writeFileSync(path.join(uploadsDirectory, filename), image);
+    return res.status(201).json({ url: `/uploads/${filename}` });
+  } catch {
+    return res.status(500).json({ message: 'Não foi possível salvar a imagem.' });
   }
 };
