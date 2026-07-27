@@ -19,6 +19,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { API_URL } from "../../config/api";
 import Reveal from "../../components/layout/Reveal";
+import { projectImageSrc } from "../../utils/projectImage";
 
 const SKILLS = [
   { icon: FaReact, label: "React" },
@@ -95,7 +96,7 @@ export default function Home() {
           {projects.map((project) => (
             <div className={styles.projectCard} key={project._id}>
               <img
-                src={`/assets/${project.imageUrls[0]}`}
+                src={projectImageSrc(project.imageUrls[0])}
                 alt={project.title}
                 className={styles.projectImg}
               />

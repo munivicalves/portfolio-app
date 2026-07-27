@@ -65,6 +65,7 @@
 
 .imageButton {
   flex: 0 0 auto;
+  position: relative;
   padding: 0;
   border: none;
   background: none;

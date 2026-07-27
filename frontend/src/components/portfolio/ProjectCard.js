@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import styles from "../../styles/ProjectCard.module.css";
 import Reveal from "../layout/Reveal";
+import { projectImageSrc } from "../../utils/projectImage";
 
 function ProjectCard({
   title,
@@ -42,8 +43,6 @@ function ProjectCard({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedIndex, handleCloseModal, handlePrev, handleNext]);
 
-  const getImageSrc = (img) => `/assets/${img}`;
-
   return (
     <Reveal className={styles.card}>
       <h3>{title}</h3>
@@ -59,7 +58,7 @@ function ProjectCard({
             aria-label={`Ampliar imagem ${idx + 1} de ${title}`}
           >
             <img
-              src={getImageSrc(img)}
+              src={projectImageSrc(img)}
               alt={`${title} — captura ${idx + 1}`}
               className={styles.image}
             />
@@ -107,7 +106,7 @@ function ProjectCard({
               <X size={18} />
             </button>
             <img
-              src={getImageSrc(imageUrls[selectedIndex])}
+              src={projectImageSrc(imageUrls[selectedIndex])}
               alt={`${title} — imagem ampliada ${selectedIndex + 1}`}
               className={styles.modalImage}
             />

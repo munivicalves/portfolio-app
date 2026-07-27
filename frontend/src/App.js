@@ -5,7 +5,7 @@ import Sidebar from "./components/layout/Sidebar";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Portfolio from "./pages/Portfolio/Portfolio";
-import CreateProject from "./pages/CreateProject/CreateProjects";
+import Admin from "./pages/Admin/Admin";
 import "./App.css";
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/portfolio" element={<Portfolio />} />
-              <Route path="/create-project" element={<CreateProject />} />
+              <Route path="/admin" element={<Admin />} />
             </Routes>
           </div>
         </div>

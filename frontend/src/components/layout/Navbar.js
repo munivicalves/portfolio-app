@@ -4,7 +4,7 @@ import styles from "../../styles/Navbar.module.css";
 import { useState } from "react";
 
 function Navbar({ darkMode, toggleTheme }) {
-  const logo = darkMode ? "/assets/logo-light.png" : "/assets/logo-dark.png";
+  const logo = darkMode ? "/assets/images/logo-light.png" : "/assets/images/logo-dark.png";
   const [menuOpen, setMenuOpen] = useState(false);
 
   const closeMenu = () => setMenuOpen(false);

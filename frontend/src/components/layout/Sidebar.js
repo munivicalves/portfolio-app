@@ -6,7 +6,7 @@ function Sidebar() {
     <aside className={styles.sidebar}>
       <div className={styles.avatarRing}>
         <img
-          src="/assets/perfil.png"
+          src="/assets/images/perfil.png"
           alt="Munique Victória"
           className={styles.profileImage}
         />
