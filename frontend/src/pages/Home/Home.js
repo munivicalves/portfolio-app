@@ -43,6 +43,7 @@ const CERTIFICATIONS = [
   "Segurança da Informação - Unimoura",
   "Fundamentos de Gestão de Projetos - Unimoura",
   "Versionamento de Código com Git e GitHub - DIO",
+  "Lógica de Programação - Blip DIO",
 ];
 
 export default function Home() {
@@ -83,10 +84,12 @@ export default function Home() {
         </div>
 
         <div className={styles.tags}>
-          <span>autonomia</span>
-          <span>visão 360º</span>
-          <span>flexibilidade</span>
-          <span>tech fluency</span>
+          <span>Clean Code</span>
+          <span>Resolução de problemas</span>
+          <span>Comunicação</span>
+          <span>Proatividade</span>
+          <span>Pensamento Crítico</span>
+          <span>Inovação</span>
         </div>
       </Reveal>
 

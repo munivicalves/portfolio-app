@@ -4,37 +4,31 @@ import Reveal from "../../components/layout/Reveal";
 
 const EXPERIENCES = [
   {
-    title: "Assistente Administrativo",
+    title: "Analista Administrativo",
     subtitle: "Baterias Moura | JAN/2023 – ATUAL",
     items: [
-      "Apoio à gestão administrativa com foco em controle de contas a receber e organização financeira",
-      "Análise de crédito para avaliação de risco e definição de limites comerciais",
-      "Realização de cobranças e renegociação de dívidas com clientes",
-      "Negociação com clientes e manutenção do relacionamento comercial",
-      "Elaboração de relatórios financeiros e de vendas para tomada de decisões",
-      "Identificação e correção de inconsistências em lançamentos e documentos financeiros",
-      "Resolução de problemas",
+      "Atuação em ambiente corporativo com sistemas ERP, realizando análise, validação e tratamento de dados.",
+      "Contato direto com regras de negócio e processos financeiros, contábeis e fiscais, desenvolvendo visão sistêmica.",
+      "Experiência em contas a receber, contas a pagar e faturamento, com foco na análise e confiabilidade das informações.",
+      "Desenvolvimento de pensamento analítico, resolução de problemas, organização e atenção aos detalhes.",
+      "Colaboração com diferentes áreas da empresa, contribuindo para o entendimento de processos e fluxos de negócio.",
     ],
   },
   {
     title: "Gerente de Finanças",
     subtitle: "Maisa Pires Ateliê | SET/2021 – JAN/2023",
     items: [
-      "Responsável pela gestão financeira da empresa: contas a pagar, conciliações bancárias, cobrança e folha de pagamento",
-      "Condução de atividades de Recursos Humanos: admissões, demissões, controle de ponto, férias e feedbacks",
-      "Resolução de conflitos financeiros com clientes, promovendo atendimento de excelência e melhoria no relacionamento comercial",
-      "Otimização de processos internos financeiros e administrativos, contribuindo para maior eficiência e controle",
+      "Gestão de processos administrativos e financeiros, com foco em organização, controle e otimização de processos.",
+      "Experiência com análise de dados, tomada de decisão e resolução de problemas.",
+      "Desenvolvimento de habilidades de liderança, responsabilidade e visão estratégica.",
     ],
   },
   {
     title: "Assistente Administrativo",
     subtitle: "Maisa Pires Ateliê | JAN/2021 – SET/2021",
     items: [
-      "Apoio à gestão administrativa e financeira da empresa",
-      "Conciliações bancárias e controle de contas a pagar e a receber",
-      "Emissão de boletos e acompanhamento de pagamentos de clientes",
-      "Suporte na organização de processos internos e atendimento ao cliente",
-      "Atendimento de clientes",
+      "Apoio a rotinas administrativas, controle de informações e organização de processos internos.",
+      "Experiência com sistemas, dados e padronização de fluxos operacionais.",
     ],
   },
 ];
@@ -46,14 +40,16 @@ function About() {
         <div className={styles.intro}>
           <h2 className={styles.title}>Sobre Mim 👩‍💻</h2>
           <p className={styles.description}>
-            Apaixonada por resolver problemas com código.
+            Apaixonada por transformar problemas em soluções através da
+            tecnologia.
             <br />
-            Desenvolvedora júnior em formação, unindo lógica, back-end e visão
-            estratégica para entregar soluções reais.
+            Sou desenvolvedora de software com background na área financeira,
+            unindo visão analítica e tecnologia para criar soluções que geram
+            valor.
           </p>
           <div className={styles.infos}>
             <div className={styles.infoItem}>
-              <Cake size={16} strokeWidth={2} /> 22 anos
+              <Cake size={16} strokeWidth={2} /> 26/12/2002
             </div>
             <div className={styles.infoItem}>
               <MapPin size={16} strokeWidth={2} /> Uberlândia, MG - Brasil
@@ -89,26 +85,29 @@ function About() {
           <Reveal as="section" className={styles.card}>
             <h2 className={styles.title}>Educação e Formação</h2>
             <ul>
-              <li>Sistemas de Informação — Em andamento</li>
+              <li>Sistemas de Informação — Concluído em 2026</li>
             </ul>
           </Reveal>
 
           <Reveal as="section" className={styles.card}>
             <h2 className={styles.title}>Competências</h2>
             <div className={styles.skillsGrid}>
-              <ul>
-                <li>Figma</li>
-                <li>React</li>
-                <li>Node.js & Express</li>
+              <ul className={styles.skillsList}>
                 <li>Java</li>
-                <li>MySQL</li>
-              </ul>
-              <ul>
+                <li>Spring Boot</li>
+                <li>Maven</li>
+                <li>Node.js & Express</li>
+                <li>React</li>
+                <li>Vue.js</li>
                 <li>HTML & CSS/SASS</li>
                 <li>JavaScript ES6+</li>
+                <li>MySQL</li>
+                <li>PostgreSQL</li>
                 <li>MongoDB</li>
-                <li>GitHub</li>
+                <li>GitHub/GIT</li>
+                <li>Docker</li>
                 <li>Metodologias Ágeis</li>
+                <li>APIs REST</li>
               </ul>
             </div>
           </Reveal>

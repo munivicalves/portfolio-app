@@ -12,16 +12,16 @@ function Sidebar() {
         />
       </div>
       <h2 className={styles.name}>Munique Victória</h2>
-      <h3 className={styles.role}>Desenvolvedora em Formação</h3>
+      <h3 className={styles.role}>Desenvolvedora Full Stack Júnior</h3>
       <p>
-        Desenvolvedora em formação com background em finanças e paixão por
+        Desenvolvedora junior com background em finanças e paixão por
         tecnologia. Meu foco é criar soluções digitais que otimizem processos e
         agreguem valor real ao usuário. Dedicada a explorar o mundo da
         tecnologia, atuando de ponta a ponta no ciclo de vida de uma aplicação.
       </p>
       <p>
-        Atualmente cursando <strong>Sistemas de Informação</strong> pela
-        Universidade de Uberaba (Uniube).
+        Graduada em <strong>Sistemas de Informação</strong> pela Universidade de
+        Uberaba (Uniube).
       </p>
       <div className={styles.socialLinks}>
         <a

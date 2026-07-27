@@ -186,6 +186,15 @@ ul {
   font-weight: bold;
 }
 
+.skillsList {
+  columns: 2;
+  column-gap: var(--space-5);
+}
+
+.skillsList li {
+  break-inside: avoid;
+}
+
 /* ---------- Languages & hobbies ---------- */
 
 .languageColumn,
@@ -243,5 +252,9 @@ ul {
   .skillsGrid {
     flex-direction: column;
     gap: var(--space-3);
+  }
+
+  .skillsList {
+    columns: 1;
   }
 }
