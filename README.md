@@ -1,7 +1,7 @@
 # 🖥️ Portfólio Profissional — Munique Alves
 
 Bem-vindo ao meu portfólio de desenvolvedora!  
-Acesse em: 🌐 [www.madebymunique.site](https://www.madebymunique.site)
+Acesse em: 🌐 [www.madebymunique.com.br](https://www.madebymunique.com.br)
 
 Este projeto foi desenvolvido com o objetivo de apresentar meus trabalhos, habilidades e trajetória como desenvolvedora web. Nele, você encontrará detalhes dos projetos que já desenvolvi, além de uma seção "Sobre mim" e meus contatos profissionais.
 
