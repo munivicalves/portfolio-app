@@ -59,7 +59,7 @@ Editar
 
 - **Frontend (React)**: [Vercel](https://vercel.com/)
 - **Backend (Node/Express)**: [Render](https://render.com/)
-- **Domínio personalizado**: [www.madebymunique.site](https://www.madebymunique.com.br)
+- **Domínio personalizado**: [www.madebymunique.com.br](https://www.madebymunique.com.br)
 
 ## 👩‍💻 Autora
 
